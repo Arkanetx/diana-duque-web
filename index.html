@@ -25,10 +25,12 @@
       color: #ff3df2;
     }
 
+    /* 📱 NAV RESPONSIVE */
     nav {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
       padding: 15px;
       background: #11182b;
     }
@@ -37,6 +39,30 @@
       color: #00e5ff;
       text-decoration: none;
       font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      background: rgba(0,229,255,0.15);
+    }
+
+    /* 🔘 BOTÓN NEÓN LIBROS */
+    .btn-libros {
+      color: #000;
+      background: linear-gradient(90deg, #ff00cc, #00e5ff);
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 12px #ff00cc;
+      transition: 0.2s;
+    }
+
+    .btn-libros:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px #00e5ff;
     }
 
     .hero {
@@ -91,6 +117,9 @@
     <a href="#">Inicio</a>
     <a href="#proyectos">Proyectos</a>
     <a href="#contacto">Contacto</a>
+
+    <!-- 🔥 BOTÓN NEÓN -->
+    <a class="btn-libros" href="libros.html">📚 Libros</a>
   </nav>
 
   <section class="hero">
