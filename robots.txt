@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Enlace directo al sitemap para indexación automatizada
+Sitemap: https://arkanetx.github.io/diana-duque-web/sitemap.xml
