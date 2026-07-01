@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Libros | Diana Duque</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="Libros publicados y proyectos literarios de Diana Duque. Disponible en Amazon y Dunken.">
+  <meta name="keywords" content="libros, Amazon, Dunken, Diana Duque, escritura, publicaciones">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: radial-gradient(circle at top, #0b0f2a, #000);
+      overflow-x: hidden;
+    }
+
+    /* 🌌 fondo estrellas */
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: 0;
+    }
+
+    .stars::before, .stars::after {
+      content: "";
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background-image: radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                        radial-gradient(2px 2px at 80px 40px, #0ff, transparent),
+                        radial-gradient(1px 1px at 120px 80px, #f0f, transparent),
+                        radial-gradient(1px 1px at 160px 120px, #fff, transparent);
+      background-repeat: repeat;
+      animation: moveStars 60s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes moveStars {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-1000px); }
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #ff4df3;
+      text-shadow: 0 0 10px #ff4df3;
+    }
+
+    p {
+      color: #bbb;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 500px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 15px;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
+    }
+
+    .card h2 {
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+      background: linear-gradient(90deg, #ff00cc, #00e5ff);
+      box-shadow: 0 0 10px #ff00cc;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      transition: 0.2s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="stars"></div>
+
+  <header>
+    <h1>📚 Libros de Diana Duque</h1>
+    <p>Publicaciones disponibles en Amazon y Dunken</p>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h2>Libro 1</h2>
+      <p>Obra literaria disponible en plataformas digitales.</p>
+      <a class="btn" href="#" target="_blank">Ver en Amazon</a>
+      <a class="btn" href="#" target="_blank">Ver en Dunken</a>
+    </div>
+
+    <div class="card">
+      <h2>Libro 2</h2>
+      <p>Proyecto editorial en expansión.</p>
+      <a class="btn" href="#" target="_blank">Ver en Amazon</a>
+      <a class="btn" href="#" target="_blank">Ver en Dunken</a>
+    </div>
+
+    <div class="card">
+      <h2>Más proyectos</h2>
+      <p>Próximamente nuevas publicaciones y ediciones especiales.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    © Diana Duque Web — Arcanet X
+  </footer>
+
+</body>
+</html>
