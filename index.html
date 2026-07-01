@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Diana Duque Web | Arcanet X</title>
 
+  <meta name="description" content="Diana Duque Web - Arcanet X. Plataforma de libros, proyectos digitales y laboratorio tecnológico en desarrollo.">
+
   <style>
     body {
       margin: 0;
@@ -25,10 +27,8 @@
       font-size: 2.3em;
       color: #ff5eea;
       text-shadow: 0 0 12px rgba(255,94,234,0.6);
-      letter-spacing: 1px;
     }
 
-    /* 📱 NAV */
     nav {
       display: flex;
       justify-content: center;
@@ -36,7 +36,6 @@
       gap: 12px;
       padding: 14px;
       background: rgba(20, 10, 35, 0.6);
-      backdrop-filter: blur(8px);
     }
 
     nav a {
@@ -45,14 +44,12 @@
       font-weight: bold;
       padding: 8px 12px;
       border-radius: 10px;
-      transition: 0.2s;
     }
 
     nav a:hover {
       background: rgba(255,255,255,0.08);
     }
 
-    /* 💖 BOTÓN LIBROS MÁS FEMENINO */
     .btn-libros {
       color: #1a0015;
       background: linear-gradient(90deg, #ff4fd8, #8a7dff, #00e5ff);
@@ -61,31 +58,6 @@
       font-weight: bold;
       text-decoration: none;
       box-shadow: 0 0 14px rgba(255,79,216,0.6);
-      transition: 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-libros:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 20px rgba(0,229,255,0.7);
-    }
-
-    /* ✨ pequeño efecto brillo */
-    .btn-libros::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 40px;
-      height: 200%;
-      background: rgba(255,255,255,0.25);
-      transform: rotate(25deg);
-      transition: 0.5s;
-    }
-
-    .btn-libros:hover::after {
-      left: 120%;
     }
 
     .hero {
@@ -95,8 +67,6 @@
 
     .hero h2 {
       font-size: 1.9em;
-      color: #ffffff;
-      font-weight: 500;
     }
 
     .hero p {
@@ -104,6 +74,22 @@
       max-width: 650px;
       margin: 10px auto;
       line-height: 1.5em;
+    }
+
+    .buttons {
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 6px;
+      padding: 10px 15px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+      background: linear-gradient(90deg, #ff00cc, #00e5ff);
+      box-shadow: 0 0 10px rgba(255,0,200,0.5);
     }
 
     .grid {
@@ -120,7 +106,6 @@
       padding: 20px;
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(6px);
     }
 
     footer {
@@ -140,42 +125,46 @@
   </header>
 
   <nav>
-    <a href="#">Inicio</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#contacto">Contacto</a>
-
-    <!-- 💖 BOTÓN LIBROS MEJORADO -->
-    <a class="btn-libros" href="libros.html">📚 Libros</a>
+    <a href="index.html">Inicio</a>
+    <a href="libros.html">Libros</a>
+    <a href="contacto.html">Contacto</a>
+    <a class="btn-libros" href="libros.html">📚 Libros destacados</a>
   </nav>
 
   <section class="hero">
     <h2>Laboratorio digital en construcción</h2>
+
     <p>
-      Proyecto experimental enfocado en tecnología, diseño web, sistemas interactivos
-      y desarrollo de entornos modernos en GitHub Pages.
+      Plataforma experimental enfocada en libros, tecnología, diseño web y sistemas interactivos.
+      Proyecto en evolución dentro del entorno Arcanet X.
     </p>
+
+    <div class="buttons">
+      <a class="btn" href="libros.html">Ver libros</a>
+      <a class="btn" href="contacto.html">Contacto</a>
+    </div>
   </section>
 
-  <section id="proyectos" class="grid">
+  <section class="grid">
 
     <div class="card">
-      <h3>Web base</h3>
-      <p>Estructura principal del sitio en HTML/CSS.</p>
+      <h3>📚 Publicaciones</h3>
+      <p>Libros disponibles en plataformas digitales como Amazon y Dunken.</p>
     </div>
 
     <div class="card">
-      <h3>Sistema futuro</h3>
-      <p>Integración de módulos interactivos y evolución del sistema.</p>
+      <h3>⚙️ Sistema web</h3>
+      <p>Estructura HTML optimizada para dispositivos móviles y escritorio.</p>
     </div>
 
     <div class="card">
-      <h3>Arcanet X</h3>
-      <p>Identidad del proyecto y expansión tecnológica.</p>
+      <h3>🚀 Arcanet X</h3>
+      <p>Proyecto en expansión orientado a tecnología y experimentación digital.</p>
     </div>
 
   </section>
 
-  <footer id="contacto">
+  <footer>
     © 2026 Diana Duque Web — Arcanet X
   </footer>
 
