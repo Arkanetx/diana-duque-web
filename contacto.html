@@ -7,131 +7,255 @@
 
   <meta name="description" content="Contacto de Diana Duque Web - Arcanet X. Colaboraciones, proyectos tecnológicos y comunicación directa.">
 
+  <!-- Carga de Fuentes del Futuro e Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #0b0f2a, #000);
-      color: white;
+    * {
+      box-sizing: border-box;
     }
 
-    /* 🌐 NAV GLOBAL */
+    body {
+      margin: 0;
+      font-family: 'Rajdhani', sans-serif;
+      background: radial-gradient(circle at center, #0c1033 0%, #020410 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Fondo de Red Cósmica / Partículas CSS */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(rgba(0, 229, 255, 0.3), rgba(255,255,255,.15) 1px, transparent 30px);
+      background-size: 550px 550px, 350px 350px;
+      background-position: 0 0, 40px 60px;
+      opacity: 0.4;
+      z-index: -1;
+    }
+
+    /* 🌐 NAV GLOBAL HOLOGRÁFICO */
     nav {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      padding: 15px;
-      background: rgba(17, 24, 43, 0.9);
+      gap: 25px;
+      padding: 20px;
+      background: rgba(5, 8, 22, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.15);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
 
     nav a {
       color: #00e5ff;
       text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     nav a:hover {
-      background: rgba(0,229,255,0.15);
+      background: rgba(0, 229, 255, 0.1);
+      color: #ff4df3;
+      text-shadow: 0 0 10px rgba(255, 77, 243, 0.6);
+      box-shadow: inset 0 0 8px rgba(0, 229, 255, 0.2);
     }
 
     header {
       text-align: center;
-      padding: 30px 20px;
+      padding: 50px 20px 20px;
     }
 
     h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
       color: #ff4df3;
-      text-shadow: 0 0 10px #ff4df3;
+      text-shadow: 0 0 15px rgba(255, 77, 243, 0.6), 0 0 30px rgba(255, 77, 243, 0.2);
+      margin: 0 0 10px 0;
+      letter-spacing: 2px;
     }
 
-    p {
-      color: #bbb;
+    header p {
+      font-size: 1.2rem;
+      color: #00e5ff;
+      text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
 
     .container {
-      max-width: 700px;
+      max-width: 650px;
       margin: auto;
-      padding: 20px;
+      padding: 20px 20px 60px;
     }
 
+    /* TARJETA CONTENEDOR EFECTO CRISTAL */
     .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(0,255,255,0.25);
-      border-radius: 15px;
-      padding: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 15px rgba(0,255,255,0.15);
+      background: rgba(10, 15, 42, 0.65);
+      border: 1px solid rgba(0, 229, 255, 0.2);
+      border-radius: 20px;
+      padding: 35px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 229, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg, #ff4df3, #00e5ff);
+    }
+
+    .info {
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      text-align: center;
     }
 
     label {
       display: block;
-      margin-top: 10px;
-      color: #ccc;
-      font-size: 0.9em;
+      margin-top: 18px;
+      color: #00e5ff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
+    /* INPUTS CIBERNÉTICOS */
     input, textarea {
       width: 100%;
-      margin-top: 5px;
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
+      margin-top: 8px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       outline: none;
-      background: #11182b;
-      color: white;
+      background: rgba(5, 8, 22, 0.8);
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00e5ff;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.3), inset 0 0 5px rgba(0, 229, 255, 0.1);
+      background: rgba(9, 14, 36, 0.9);
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 140px;
+      resize: vertical;
     }
 
+    /* BOTÓN INTERACTIVO */
     .btn {
-      margin-top: 15px;
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-weight: bold;
-      color: black;
-      background: linear-gradient(90deg, #ff00cc, #00e5ff);
-      box-shadow: 0 0 12px #ff00cc;
+      width: 100%;
+      margin-top: 25px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #ffffff;
+      background: linear-gradient(135deg, #e000b4, #00a2ff);
       border: none;
       cursor: pointer;
+      box-shadow: 0 4px 20px rgba(224, 0, 180, 0.4);
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
 
     .btn:hover {
-      transform: scale(1.05);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 229, 255, 0.5);
+      background: linear-gradient(135deg, #ff4df3, #00e5ff);
     }
 
-    .info {
-      margin-top: 20px;
-      font-size: 0.9em;
-      color: #aaa;
-      line-height: 1.6;
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    /* ALERTAS DE ESTADO */
+    .status-msg {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      display: none;
+    }
+    .status-msg.success {
+      display: block;
+      background: rgba(0, 255, 150, 0.1);
+      border: 1px solid rgba(0, 255, 150, 0.3);
+      color: #00ff96;
     }
 
     .links {
-      margin-top: 20px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
       text-align: center;
     }
 
     .links a {
-      display: inline-block;
-      margin: 6px;
-      padding: 8px 12px;
-      border-radius: 10px;
-      color: #00e5ff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0 10px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: #cbd5e1;
       text-decoration: none;
-      border: 1px solid rgba(0,229,255,0.3);
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.2s ease;
+    }
+
+    .links a:hover {
+      color: #00e5ff;
+      border-color: #00e5ff;
+      background: rgba(0, 229, 255, 0.05);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
-      color: #666;
+      padding: 30px;
+      color: #475569;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
     }
   </style>
 </head>
@@ -140,50 +264,77 @@
 
   <!-- 🌐 NAV -->
   <nav>
-    <a href="index.html">🏠 Inicio</a>
-    <a href="libros.html">📚 Libros</a>
-    <a href="contacto.html">📡 Contacto</a>
+    <a href="index.html"><i class="fa-solid fa-house-chimney"></i> Inicio</a>
+    <a href="libros.html"><i class="fa-solid fa-book-bookmark"></i> Libros</a>
+    <a href="contacto.html"><i class="fa-solid fa-satellite-dish"></i> Contacto</a>
   </nav>
 
   <header>
-    <h1>📡 Contacto</h1>
-    <p>Arcanet X — comunicación directa y colaboraciones</p>
+    <h1>📡 CONEXIÓN</h1>
+    <p>Arcanet X — Nodo de Enlace Cuántico</p>
   </header>
 
   <div class="container">
 
     <div class="card">
-
       <p class="info">
-        Este espacio está destinado a colaboraciones, proyectos tecnológicos,
-        desarrollo web y propuestas creativas dentro del entorno Arcanet X.
+        Inicia un canal de comunicación directo para colaboraciones, desarrollo de entornos avanzados, 
+        arquitectura tecnológica o propuestas creativas.
       </p>
 
-      <form>
-        <label>Nombre</label>
-        <input type="text" placeholder="Tu nombre">
+      <form id="arcanetForm">
+        <label><i class="fa-solid fa-user-astronaut"></i> Identificador / Nombre</label>
+        <input type="text" placeholder="Introduce tu firma o nombre" required>
 
-        <label>Email</label>
-        <input type="email" placeholder="tuemail@email.com">
+        <label><i class="fa-solid fa-envelope-open-text"></i> Dirección de Correo (Email)</label>
+        <input type="email" placeholder="nombre@servidor.com" required>
 
-        <label>Mensaje</label>
-        <textarea placeholder="Escribe tu mensaje..."></textarea>
+        <label><i class="fa-solid fa-terminal"></i> Datos de la Propuesta (Mensaje)</label>
+        <textarea placeholder="Redacta los parámetros de tu transmisión..." required></textarea>
 
-        <button class="btn" type="button">Enviar</button>
+        <button class="btn" type="submit" id="submitBtn">
+          <i class="fa-solid fa-paper-plane"></i> ENVIAR TRANSMISIÓN
+        </button>
+
+        <div class="status-msg success" id="statusBox">
+          <i class="fa-solid fa-circle-check"></i> Transmisión enviada con éxito al núcleo Arcanet X.
+        </div>
       </form>
 
       <div class="links">
-        <a href="index.html">🏠 Inicio</a>
-        <a href="libros.html">📚 Libros</a>
+        <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver a Inicio</a>
+        <a href="libros.html">Biblioteca <i class="fa-solid fa-arrow-right"></i></a>
       </div>
-
     </div>
 
   </div>
 
   <footer>
-    © 2026 Diana Duque Web — Arcanet X
+    © 2026 Diana Duque Web — Protocolo Arcanet X
   </footer>
+
+  <!-- Script interactivo de simulación -->
+  <script>
+    document.getElementById('arcanetForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('statusBox');
+      
+      // Animación de envío simulado
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> TRANSMITIENDO PAQUETES...';
+      btn.style.pointerEvents = 'none';
+      btn.style.opacity = '0.7';
+
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-check-double"></i> TRANSMISIÓN COMPLETADA';
+        btn.style.background = 'linear-gradient(135deg, #00ff96, #00a2ff)';
+        status.style.display = 'block';
+        
+        // Limpiar formulario opcionalmente
+        document.getElementById('arcanetForm').reset();
+      }, 2200);
+    });
+  </script>
 
 </body>
 </html>
