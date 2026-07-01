@@ -1,27 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Diana Duque</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diana Duque Web | Arcanet X</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0f1a;
+      color: #ffffff;
+    }
+
+    header {
+      padding: 30px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.2em;
+      color: #ff3df2;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background: #11182b;
+    }
+
+    nav a {
+      color: #00e5ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 1.8em;
+      color: #ffffff;
+    }
+
+    .hero p {
+      color: #b8b8b8;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: #121a2f;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #1f2a44;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      border-top: 1px solid #222;
+    }
+  </style>
 </head>
 
 <body>
 
-  <header class="hero">
-    <h1>Diana Duque</h1>
-    <p>Escritora | Libros | Creatividad digital</p>
+  <header>
+    <h1>Diana Duque Web</h1>
+    <p>Arcanet X — plataforma en desarrollo</p>
   </header>
 
-  <section class="intro">
-    <h2>Bienvenida</h2>
-    <p>Este es un espacio donde la escritura, la imaginación y la narrativa se encuentran.</p>
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Laboratorio digital en construcción</h2>
+    <p>
+      Proyecto experimental enfocado en tecnología, diseño web, sistemas interactivos
+      y desarrollo de entornos modernos en GitHub Pages.
+    </p>
   </section>
 
-  <nav>
-    <a href="books.html">Libros</a>
-    <a href="contact.html">Contacto</a>
-  </nav>
+  <section id="proyectos" class="grid">
+
+    <div class="card">
+      <h3>Web base</h3>
+      <p>Estructura principal del sitio en HTML/CSS.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sistema futuro</h3>
+      <p>Integración de módulos interactivos y contenido dinámico.</p>
+    </div>
+
+    <div class="card">
+      <h3>Arcanet X</h3>
+      <p>Identidad del proyecto y expansión tecnológica.</p>
+    </div>
+
+  </section>
+
+  <footer id="contacto">
+    © 2026 Diana Duque Web — Arcanet X
+  </footer>
 
 </body>
 </html>
