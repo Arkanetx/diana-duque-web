@@ -4,181 +4,321 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Diana Duque Web - Libros, Proyectos y Arcanet X</title>
+  <title>Diana Helen Duque — Escritora, Obra Literaria y Arcanet X</title>
 
-  <meta name="description" content="Diana Duque Web es un proyecto digital de libros, escritura, tecnología y desarrollo web dentro de Arcanet X. Publicaciones y laboratorio creativo en evolución.">
-
+  <meta name="description" content="Portal oficial de Diana Helen Duque: escritora, investigadora narrativa y creadora de mundos. Explora sus libros, publicaciones y su laboratorio digital experimental en Arcanet X.">
   <meta name="robots" content="index, follow">
 
   <style>
+    /* VARIABLES RGB NEÓN Y PALETA CIBER-LITERARIA */
+    :root {
+      --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB */
+      --neon-blue: rgb(0, 240, 255);       /* Azul Fluorescente RGB */
+      --bg-space: rgb(11, 6, 24);          /* Fondo profundo */
+      --bg-void: rgb(4, 4, 10);            /* Fondo oscuro absoluto */
+      --text-pure: rgb(255, 255, 255);     /* Texto principal */
+      --text-muted: rgb(184, 175, 212);    /* Texto descriptivo */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #120a1f, #070812);
-      color: #ffffff;
+      padding: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top, var(--bg-space), var(--bg-void));
+      color: var(--text-pure);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* HEADER PROFESIONAL CON GRADIENTE */
     header {
-      padding: 35px 20px;
+      padding: 60px 20px 40px 20px;
       text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(180deg, rgba(255,0,200,0.08), transparent);
+      background: linear-gradient(180deg, rgba(255, 0, 127, 0.12), transparent);
+      border-bottom: 1px solid rgba(255, 0, 127, 0.2);
     }
 
-    h1 {
+    header h1 {
       margin: 0;
-      font-size: 2.3em;
-      color: #ff5eea;
-      text-shadow: 0 0 12px rgba(255,94,234,0.6);
+      font-size: 3em;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.4));
     }
 
+    .author-tag {
+      font-size: 1.2em;
+      color: var(--neon-blue);
+      margin-top: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+
+    /* MENÚ DE NAVEGACIÓN RENDERIZADO */
     nav {
       display: flex;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-      padding: 14px;
-      background: rgba(20, 10, 35, 0.6);
+      gap: 20px;
+      padding: 18px 20px;
+      background: rgba(4, 4, 10, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 240, 255, 0.2);
     }
 
     nav a {
-      color: #cfe9ff;
+      color: var(--text-pure);
       text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1em;
+      padding: 8px 16px;
+      transition: all 0.3s ease;
     }
 
     nav a:hover {
-      background: rgba(255,255,255,0.08);
+      color: var(--neon-pink);
+      text-shadow: 0 0 10px var(--neon-pink);
     }
 
-    .btn-libros {
-      color: #1a0015;
-      background: linear-gradient(90deg, #ff4fd8, #8a7dff, #00e5ff);
-      padding: 10px 18px;
-      border-radius: 14px;
-      font-weight: bold;
+    /* BOTÓN DESTACADO MULTICROMÁTICO EN EL NAV */
+    .btn-libros-nav {
+      color: var(--text-pure);
+      background: transparent;
+      border: 2px solid var(--neon-pink);
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 0 14px rgba(255,79,216,0.6);
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+      transition: all 0.3s ease;
     }
 
+    .btn-libros-nav:hover {
+      background: var(--neon-pink);
+      color: var(--bg-void);
+      box-shadow: 0 0 25px var(--neon-pink);
+      text-shadow: none;
+    }
+
+    /* SECCIÓN HERO - ENFOQUE LITERARIO */
     .hero {
-      padding: 65px 20px;
+      padding: 90px 20px;
       text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
     }
 
     .hero h2 {
-      font-size: 1.9em;
+      font-size: 2.4em;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
     }
 
     .hero p {
-      color: #c7c7c7;
-      max-width: 650px;
-      margin: 10px auto;
-      line-height: 1.5em;
+      color: var(--text-muted);
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin: 15px auto 35px auto;
     }
 
-    .buttons {
-      margin-top: 25px;
+    /* CONTENEDOR DE BOTONES NEÓN INTERACTIVOS */
+    .buttons-container {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
     }
 
-    .btn {
+    /* ESTILOS DE BOTONES INDIVIDUALES (ROSADO Y AZUL) */
+    .btn-neon-pink {
       display: inline-block;
-      margin: 6px;
-      padding: 10px 15px;
-      border-radius: 12px;
+      padding: 14px 32px;
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: bold;
-      color: black;
-      background: linear-gradient(90deg, #ff00cc, #00e5ff);
-      box-shadow: 0 0 10px rgba(255,0,200,0.5);
+      font-weight: 700;
+      font-size: 1.05em;
+      letter-spacing: 1px;
+      color: var(--neon-pink);
+      background: transparent;
+      border: 2px solid var(--neon-pink);
+      box-shadow: 0 0 12px rgba(255, 0, 127, 0.3), inset 0 0 8px rgba(255, 0, 127, 0.2);
+      text-shadow: 0 0 5px var(--neon-pink);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
+    .btn-neon-pink:hover {
+      background: var(--neon-pink);
+      color: var(--bg-void);
+      box-shadow: 0 0 30px var(--neon-pink), 0 0 10px rgba(255, 0, 127, 0.6);
+      text-shadow: none;
+      transform: translateY(-3px);
+    }
+
+    .btn-neon-blue {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05em;
+      letter-spacing: 1px;
+      color: var(--neon-blue);
+      background: transparent;
+      border: 2px solid var(--neon-blue);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.3), inset 0 0 8px rgba(0, 240, 255, 0.2);
+      text-shadow: 0 0 5px var(--neon-blue);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .btn-neon-blue:hover {
+      background: var(--neon-blue);
+      color: var(--bg-void);
+      box-shadow: 0 0 30px var(--neon-blue), 0 0 10px rgba(0, 240, 255, 0.6);
+      text-shadow: none;
+      transform: translateY(-3px);
+    }
+
+    /* REJILLA DE PROYECTOS / TARJETAS DINÁMICAS */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1000px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px 20px 80px 20px;
+      max-width: 1150px;
       margin: auto;
     }
 
     .card {
-      background: rgba(255,255,255,0.04);
-      padding: 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 35px 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
+    /* Línea decorativa superior en degradé para denotar profesionalismo */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      opacity: 0.8;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 240, 255, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 240, 255, 0.15);
+    }
+
+    .card h3 {
+      font-size: 1.4em;
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 1em;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* PIE DE PÁGINA AUTORAL SOLICITADO */
     footer {
       text-align: center;
-      padding: 30px;
-      color: #888;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 50px 20px;
+      color: rgb(110, 105, 130);
+      font-size: 0.95em;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(4, 4, 10, 0.95);
+      letter-spacing: 1px;
+      line-height: 1.8;
+    }
+    
+    footer span {
+      color: var(--neon-pink);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header>
-    <h1>Diana Duque Web</h1>
-    <p style="color:#bda6ff;">Arcanet X — plataforma en desarrollo</p>
+    <h1>Diana Helen Duque</h1>
+    <div class="author-tag">Escritora & Creadora Narrativa</div>
   </header>
 
-  <!-- NAV -->
   <nav>
     <a href="index.html">Inicio</a>
-    <a href="libros.html">Libros</a>
+    <a href="libros.html">Biblioteca</a>
     <a href="contacto.html">Contacto</a>
-
-    <a class="btn-libros" href="libros.html">📚 Libros destacados</a>
+    <a class="btn-libros-nav" href="libros.html">📚 Obras Destacadas</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
 
-    <h2>Laboratorio digital en construcción</h2>
+    <h2>Portal Literario y Laboratorio Digital</h2>
 
     <p>
-      Plataforma experimental enfocada en libros, tecnología, diseño web y sistemas interactivos.
-      Proyecto en evolución dentro del entorno Arcanet X.
+      Bienvenidos al espacio oficial de <strong>Diana Helen Duque</strong>. Esta plataforma experimental fusiona la alta literatura, la narrativa de vanguardia y el diseño interactivo de sistemas estéticos. Un ecosistema creativo en continua evolución conceptual desarrollado bajo la infraestructura de <strong>Arcanet X</strong>.
     </p>
 
-    <p><strong>Diana Duque Web - Libros y proyectos digitales en Arcanet X</strong></p>
-
-    <div class="buttons">
-      <a class="btn" href="libros.html">Ver libros</a>
-      <a class="btn" href="contacto.html">Contacto</a>
+    <div class="buttons-container">
+      <a class="btn-neon-pink" href="libros.html">Explorar Libros</a>
+      <a class="btn-neon-blue" href="contacto.html">Contacto Directo</a>
     </div>
 
   </section>
 
-  <!-- CONTENT -->
   <section class="grid">
 
     <div class="card">
-      <h3>📚 Publicaciones</h3>
-      <p>Libros disponibles en Amazon y Dunken con distribución digital.</p>
+      <h3>📚 Obra y Publicaciones</h3>
+      <p>Exploración de novelas, antologías y universos literarios disponibles en plataformas globales como Amazon y Editorial Dunken, con una cuidada distribución digital y física.</p>
     </div>
 
     <div class="card">
-      <h3>⚙️ Desarrollo web</h3>
-      <p>Sitio optimizado en HTML responsive para móvil y escritorio.</p>
+      <h3>⚙️ Estética Avanzada</h3>
+      <p>Entorno web optimizado de forma responsiva mediante hojas de estilo nativas de alto rendimiento, asegurando una lectura fluida e inmersiva tanto en móviles como en escritorio.</p>
     </div>
 
     <div class="card">
-      <h3>🚀 Arcanet X</h3>
-      <p>Proyecto tecnológico en expansión con enfoque creativo y experimental.</p>
+      <h3>🚀 Universo Arcanet X</h3>
+      <p>Laboratorio transmedia donde las historias de la autora rompen las fronteras del papel para convertirse en experiencias tecnológicas y artísticas en expansión.</p>
     </div>
 
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    © 2026 Diana Duque Web — Arcanet X
+    Diana Helen Duque escritora todos los derechos reservados © 2026 <br>
+    Plataforma integrada en el ecosistema digital de <span>Arcanet X</span>
   </footer>
 
 </body>
