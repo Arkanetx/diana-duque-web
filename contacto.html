@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contacto | Diana Duque Web</title>
 
-  <meta name="description" content="Contacto de Diana Duque Web - Arcanet X. Colaboraciones, proyectos tecnológicos y comunicación directa.">
+  <meta name="description" content="Contacto de Diana Duque Web - Arkanetx. Colaboraciones, proyectos tecnológicos y comunicación directa.">
 
   <!-- Carga de Fuentes del Futuro e Iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,6 +215,7 @@
       font-family: 'Orbitron', sans-serif;
       display: none;
     }
+    
     .status-msg.success {
       display: block;
       background: rgba(0, 255, 150, 0.1);
@@ -256,6 +257,11 @@
       font-family: 'Orbitron', sans-serif;
       font-size: 0.8rem;
       letter-spacing: 1px;
+      line-height: 1.6;
+    }
+
+    footer span {
+      color: #ff4df3;
     }
   </style>
 </head>
@@ -271,7 +277,7 @@
 
   <header>
     <h1>📡 CONEXIÓN</h1>
-    <p>Arcanet X — Nodo de Enlace Cuántico</p>
+    <p>Arkanetx — Nodo de Enlace Cuántico</p>
   </header>
 
   <div class="container">
@@ -284,20 +290,20 @@
 
       <form id="arcanetForm">
         <label><i class="fa-solid fa-user-astronaut"></i> Identificador / Nombre</label>
-        <input type="text" placeholder="Introduce tu firma o nombre" required>
+        <input type="text" name="nombre" placeholder="Introduce tu firma o nombre" required>
 
         <label><i class="fa-solid fa-envelope-open-text"></i> Dirección de Correo (Email)</label>
-        <input type="email" placeholder="nombre@servidor.com" required>
+        <input type="email" name="email" placeholder="nombre@servidor.com" required>
 
         <label><i class="fa-solid fa-terminal"></i> Datos de la Propuesta (Mensaje)</label>
-        <textarea placeholder="Redacta los parámetros de tu transmisión..." required></textarea>
+        <textarea name="mensaje" placeholder="Redacta los parámetros de tu transmisión..." required></textarea>
 
         <button class="btn" type="submit" id="submitBtn">
           <i class="fa-solid fa-paper-plane"></i> ENVIAR TRANSMISIÓN
         </button>
 
         <div class="status-msg success" id="statusBox">
-          <i class="fa-solid fa-circle-check"></i> Transmisión enviada con éxito al núcleo Arcanet X.
+          <i class="fa-solid fa-circle-check"></i> Transmisión enviada con éxito al núcleo Arkanetx.
         </div>
       </form>
 
@@ -310,7 +316,8 @@
   </div>
 
   <footer>
-    © 2026 Diana Duque Web — Protocolo Arcanet X
+    Diana Helen Duque escritora todos los derechos reservados © 2026 <br>
+    Sistemas de Información e Infraestructura Creativa por <span>Arkanetx</span>
   </footer>
 
   <!-- Script interactivo de simulación -->
@@ -320,6 +327,9 @@
       const btn = document.getElementById('submitBtn');
       const status = document.getElementById('statusBox');
       
+      // Guardar estilos iniciales del botón para restauración posterior
+      const originalBg = btn.style.background;
+
       // Animación de envío simulado
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> TRANSMITIENDO PAQUETES...';
       btn.style.pointerEvents = 'none';
@@ -328,10 +338,20 @@
       setTimeout(() => {
         btn.innerHTML = '<i class="fa-solid fa-check-double"></i> TRANSMISIÓN COMPLETADA';
         btn.style.background = 'linear-gradient(135deg, #00ff96, #00a2ff)';
+        btn.style.opacity = '1';
         status.style.display = 'block';
         
-        // Limpiar formulario opcionalmente
+        // Limpiar el formulario
         document.getElementById('arcanetForm').reset();
+
+        // ⏱️ UX FIX: Restaurar el canal después de 4 segundos para permitir nuevos envíos
+        setTimeout(() => {
+          status.style.display = 'none';
+          btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> ENVIAR TRANSMISIÓN';
+          btn.style.background = originalBg;
+          btn.style.pointerEvents = 'auto';
+        }, 4000);
+
       }, 2200);
     });
   </script>
