@@ -317,6 +317,22 @@
     footer span {
       color: var(--neon-pink);
     }
+
+    /* ENLACE LEGAL DISCRETO SOLICITADO */
+    .legal-link {
+      color: rgba(0, 240, 255, 0.35); /* Letras azul cian muy suaves y atenuadas */
+      text-decoration: none;
+      font-size: 0.85em;
+      display: inline-block;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+
+    .legal-link:hover {
+      color: rgb(0, 240, 255); /* Se activa al pasar el mouse por encima */
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    }
   </style>
 </head>
 
@@ -375,7 +391,8 @@
 
   <footer>
     Diana Helen Duque escritora todos los derechos reservados © 2026 <br>
-    Plataforma integrada en el ecosistema digital de <span>Arkanetx</span>
+    Plataforma integrada en el ecosistema digital de <span>Arkanetx</span> <br>
+    <a href="legal.html" class="legal-link">📡 Aviso Legal y Privacidad</a>
   </footer>
 
 </body>
