@@ -223,6 +223,103 @@
       color: #00ff96;
     }
 
+    /* 🌀 NUEVA SECCIÓN DE REDES: RUEDA RGB Y NEÓN DORADO */
+    .matrix-networks-title {
+      text-align: center; 
+      margin-top: 35px; 
+      color: #ffd700 !important; 
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .social-wheel-container {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      padding: 20px 10px;
+      background: rgba(4, 6, 18, 0.6);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 215, 0, 0.15);
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+    }
+
+    .social-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 95px;
+    }
+
+    /* La rueda / anillo con gradiente RGB animado */
+    .wheel-wrapper {
+      position: relative;
+      width: 66px;
+      height: 66px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rgb-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(#ffd700, #ff007f, #00e5ff, #7f00ff, #ffd700);
+      animation: spinRing 4s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Botón central estilo Neón Dorado */
+    .neon-gold-btn {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #040714;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem;
+      text-shadow: 0 0 8px #ffd700;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.4), inset 0 0 8px rgba(255, 215, 0, 0.2);
+      z-index: 2;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      text-decoration: none;
+    }
+
+    .neon-gold-btn:hover {
+      color: #ffffff;
+      border-color: #ffffff;
+      text-shadow: 0 0 15px #ffffff, 0 0 25px #ffd700;
+      box-shadow: 0 0 25px #ffd700, inset 0 0 14px #ffd700;
+      transform: scale(1.08);
+    }
+
+    .node-label {
+      margin-top: 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .social-item:hover .node-label {
+      color: #ffd700;
+      text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+
     .links {
       margin-top: 30px;
       padding-top: 20px;
@@ -307,6 +404,71 @@
         </div>
       </form>
 
+      <!-- 🌟 NUEVA SECCIÓN: MATRIZ DE CUENTAS EN NEÓN DORADO + RUEDA RGB -->
+      <label class="matrix-networks-title">
+        <i class="fa-solid fa-circle-nodes"></i> Nodos Holográficos Multi-Cuenta
+      </label>
+      
+      <div class="social-wheel-container">
+        
+        <!-- Cuenta 1: Instagram helenduque200 -->
+        <div class="social-item" id="nodo-ig-duque200">
+          <div class="wheel-wrapper">
+            <div class="rgb-ring"></div>
+            <a href="https://www.instagram.com/helenduque200?igsh=YmNhYmp4dXM0NThs" target="_blank" rel="noopener" class="neon-gold-btn">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <div class="node-label">IG @200</div>
+        </div>
+
+        <!-- Cuenta 2: Facebook id=61553584610408 -->
+        <div class="social-item" id="nodo-fb-id615">
+          <div class="wheel-wrapper">
+            <div class="rgb-ring"></div>
+            <a href="https://www.facebook.com/profile.php?id=61553584610408" target="_blank" rel="noopener" class="neon-gold-btn">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+          <div class="node-label">FB Alfa</div>
+        </div>
+
+        <!-- Cuenta 3: Instagram helendiana21 -->
+        <div class="social-item" id="nodo-ig-diana21">
+          <div class="wheel-wrapper">
+            <div class="rgb-ring"></div>
+            <a href="https://www.instagram.com/helendiana21?igsh=MWJ6OTlkZmNoZWZrbQ==" target="_blank" rel="noopener" class="neon-gold-btn">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <div class="node-label">IG @21</div>
+        </div>
+
+        <!-- Cuenta 4: Facebook diana.h.duque -->
+        <div class="social-item" id="nodo-fb-diana-h">
+          <div class="wheel-wrapper">
+            <div class="rgb-ring"></div>
+            <a href="https://www.facebook.com/diana.h.duque?" target="_blank" rel="noopener" class="neon-gold-btn">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+          <div class="node-label">FB Diana</div>
+        </div>
+
+        <!-- Cuenta 5: Facebook Share Alternativo -->
+        <div class="social-item" id="nodo-fb-share-nx">
+          <div class="wheel-wrapper">
+            <div class="rgb-ring"></div>
+            <a href="https://www.facebook.com/share/1bPtxYpGp9/?mibextid=wwXIfr" target="_blank" rel="noopener" class="neon-gold-btn">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+          </div>
+          <div class="node-label">FB Nexo</div>
+        </div>
+
+      </div>
+      <!-- FIN DE SECCIÓN NUEVA -->
+
       <div class="links">
         <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver a Inicio</a>
         <a href="libros.html">Biblioteca <i class="fa-solid fa-arrow-right"></i></a>
@@ -327,10 +489,8 @@
       const btn = document.getElementById('submitBtn');
       const status = document.getElementById('statusBox');
       
-      // Guardar estilos iniciales del botón para restauración posterior
       const originalBg = btn.style.background;
 
-      // Animación de envío simulado
       btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> TRANSMITIENDO PAQUETES...';
       btn.style.pointerEvents = 'none';
       btn.style.opacity = '0.7';
@@ -341,10 +501,8 @@
         btn.style.opacity = '1';
         status.style.display = 'block';
         
-        // Limpiar el formulario
         document.getElementById('arcanetForm').reset();
 
-        // ⏱️ UX FIX: Restaurar el canal después de 4 segundos para permitir nuevos envíos
         setTimeout(() => {
           status.style.display = 'none';
           btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> ENVIAR TRANSMISIÓN';
