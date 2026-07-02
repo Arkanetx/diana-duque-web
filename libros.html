@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Biblioteca Digital | Diana Helen Duque</title>
 
-  <meta name="description" content="Biblioteca virtual y colecciones literarias de Diana Helen Duque. Publicaciones y universos narrativos dentro de Arcanet X.">
+  <meta name="description" content="Biblioteca virtual y colecciones literarias de Diana Helen Duque. Publicaciones y universos narrativos dentro de Arkanetx.">
   <meta name="keywords" content="libros, colecciones, Amazon, Dunken, Diana Duque, literatura, cyberpunk, escritora">
 
   <style>
@@ -209,9 +209,21 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       color: var(--neon-blue);
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       font-weight: 700;
       text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+    }
+
+    /* 🎬 CLASE PARA LOS VIDEOS DECORATIVOS DE CADA PORTAL */
+    .book-video {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      margin-bottom: 18px;
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.1);
+      display: block;
     }
 
     /* CONTENEDOR DE ACCIONES */
@@ -303,9 +315,14 @@
       
       <div class="shelf-books">
         
+        <!-- TARJETA 1 -->
         <div class="book-card">
           <div>
             <div class="book-meta">Volumen I — Publicación Oficial</div>
+            <!-- Video Decorativo Libro 1 -->
+            <video class="book-video" autoplay loop muted playsinline>
+              <source src="libro1.mp4" type="video/mp4">
+            </video>
             <h3>Obra Principal</h3>
             <p>Novela insignia disponible en formatos físico y digital con distribución y alcance internacional.</p>
           </div>
@@ -315,9 +332,14 @@
           </div>
         </div>
 
+        <!-- TARJETA 2 -->
         <div class="book-card">
           <div>
             <div class="book-meta">Volumen II — Narrativa Avanzada</div>
+            <!-- Video Decorativo Libro 2 -->
+            <video class="book-video" autoplay loop muted playsinline>
+              <source src="libro2.mp4" type="video/mp4">
+            </video>
             <h3>Proyecto Editorial</h3>
             <p>Serie literaria en curso enfocada en narrativas de vanguardia, hibridación artística y prosa experimental.</p>
           </div>
@@ -335,9 +357,14 @@
       
       <div class="shelf-books">
 
+        <!-- TARJETA 3 -->
         <div class="book-card">
           <div>
-            <div class="book-meta">Fase Alpha — Arcanet X</div>
+            <div class="book-meta">Fase Alpha — Arkanetx</div>
+            <!-- Video Decorativo Libro 3 -->
+            <video class="book-video" autoplay loop muted playsinline>
+              <source src="libro3.mp4" type="video/mp4">
+            </video>
             <h3>Antologías de Vanguardia</h3>
             <p>Contenido expandido, nuevos manuscritos y universos literarios entrelazados con sistemas digitales.</p>
           </div>
@@ -347,9 +374,14 @@
           </div>
         </div>
 
+        <!-- TARJETA 4 -->
         <div class="book-card">
           <div>
             <div class="book-meta">Edición Especial — En Desarrollo</div>
+            <!-- Video Decorativo Libro 4 -->
+            <video class="book-video" autoplay loop muted playsinline>
+              <source src="libro4.mp4" type="video/mp4">
+            </video>
             <h3>Manuscritos Expandidos</h3>
             <p>Compilaciones estéticas exclusivas impresas bajo demanda y alojadas en el ecosistema digital.</p>
           </div>
@@ -365,7 +397,7 @@
 
   <footer>
     Diana Helen Duque escritora todos los derechos reservados © 2026 <br>
-    Sistemas de Información e Infraestructura Creativa por <span>Arcanet X</span>
+    Sistemas de Información e Infraestructura Creativa por <span>Arkanetx</span>
   </footer>
 
 </body>
