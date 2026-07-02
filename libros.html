@@ -214,15 +214,17 @@
       text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
     }
 
-    /* 🎬 CLASE PARA LOS VIDEOS DECORATIVOS DE CADA PORTAL */
+    /* 🎬 OPTIMIZACIÓN DE VIDEO DECORATIVO (SIN CORTES) */
     .book-video {
       width: 100%;
-      height: 160px;
-      object-fit: cover;
+      height: auto;                     /* Permite que la altura sea fluida */
+      aspect-ratio: 16 / 9;             /* Fuerza la proporción estándar de video */
+      object-fit: contain;              /* Muestra la filmación completa sin mutilar los bordes */
+      background: rgba(5, 8, 22, 0.5);  /* Fondo de seguridad para integrar el reproductor */
       border-radius: 8px;
-      border: 1px solid rgba(0, 240, 255, 0.2);
+      border: 1px solid rgba(0, 240, 255, 0.25);
       margin-bottom: 18px;
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.1);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
       display: block;
     }
 
@@ -315,11 +317,9 @@
       
       <div class="shelf-books">
         
-        <!-- TARJETA 1 -->
         <div class="book-card">
           <div>
             <div class="book-meta">Volumen I — Publicación Oficial</div>
-            <!-- Video Decorativo Libro 1 -->
             <video class="book-video" autoplay loop muted playsinline>
               <source src="libro1.mp4" type="video/mp4">
             </video>
@@ -332,11 +332,9 @@
           </div>
         </div>
 
-        <!-- TARJETA 2 -->
         <div class="book-card">
           <div>
             <div class="book-meta">Volumen II — Narrativa Avanzada</div>
-            <!-- Video Decorativo Libro 2 -->
             <video class="book-video" autoplay loop muted playsinline>
               <source src="libro2.mp4" type="video/mp4">
             </video>
@@ -357,11 +355,9 @@
       
       <div class="shelf-books">
 
-        <!-- TARJETA 3 -->
         <div class="book-card">
           <div>
             <div class="book-meta">Fase Alpha — Arkanetx</div>
-            <!-- Video Decorativo Libro 3 -->
             <video class="book-video" autoplay loop muted playsinline>
               <source src="libro3.mp4" type="video/mp4">
             </video>
@@ -374,11 +370,9 @@
           </div>
         </div>
 
-        <!-- TARJETA 4 -->
         <div class="book-card">
           <div>
             <div class="book-meta">Edición Especial — En Desarrollo</div>
-            <!-- Video Decorativo Libro 4 -->
             <video class="book-video" autoplay loop muted playsinline>
               <source src="libro4.mp4" type="video/mp4">
             </video>
