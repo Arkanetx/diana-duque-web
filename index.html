@@ -58,6 +58,13 @@
       --bg-void: rgb(4, 4, 10);            /* Fondo oscuro absoluto */
       --text-pure: rgb(255, 255, 255);     /* Texto principal */
       --text-muted: rgb(184, 175, 212);    /* Texto descriptivo */
+      
+      /* COLORES DE ORIGEN RGB PARA REDES SOCIALES (EFECTO NEÓN) */
+      --brand-tiktok: rgb(0, 242, 234);     /* Cian ciber de TikTok */
+      --brand-facebook: rgb(24, 119, 242);  /* Azul oficial de FB */
+      --brand-x: rgb(235, 235, 235);         /* Blanco/Gris puro para X */
+      --brand-instagram: rgb(225, 48, 108); /* Rosa/Magneta de IG */
+      --brand-linkedin: rgb(0, 119, 181);   /* Azul corporativo LinkedIn */
     }
 
     * {
@@ -318,6 +325,94 @@
       color: var(--neon-pink);
     }
 
+    /* CONTENEDOR DE REDES EN EL FOOTER */
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 25px 0 35px 0;
+    }
+
+    /* ESTILO BASE BOTONES SOCIALES RGB NEÓN */
+    .btn-social-neon {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9em;
+      letter-spacing: 0.5px;
+      background: transparent;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* VARIANTES DE COLOR DE ORIGEN CON RESPUESTA HOVER INTENSA */
+    .btn-tiktok {
+      color: var(--brand-tiktok);
+      border: 2px solid var(--brand-tiktok);
+      box-shadow: 0 0 10px rgba(0, 242, 234, 0.2);
+      text-shadow: 0 0 4px var(--brand-tiktok);
+    }
+    .btn-tiktok:hover {
+      background: var(--brand-tiktok);
+      color: var(--bg-void);
+      box-shadow: 0 0 25px var(--brand-tiktok);
+      text-shadow: none;
+    }
+
+    .btn-facebook {
+      color: var(--brand-facebook);
+      border: 2px solid var(--brand-facebook);
+      box-shadow: 0 0 10px rgba(24, 119, 242, 0.2);
+      text-shadow: 0 0 4px var(--brand-facebook);
+    }
+    .btn-facebook:hover {
+      background: var(--brand-facebook);
+      color: #ffffff;
+      box-shadow: 0 0 25px var(--brand-facebook);
+      text-shadow: none;
+    }
+
+    .btn-x {
+      color: var(--brand-x);
+      border: 2px solid var(--brand-x);
+      box-shadow: 0 0 10px rgba(235, 235, 235, 0.1);
+      text-shadow: 0 0 4px var(--brand-x);
+    }
+    .btn-x:hover {
+      background: var(--brand-x);
+      color: var(--bg-void);
+      box-shadow: 0 0 25px var(--brand-x);
+      text-shadow: none;
+    }
+
+    .btn-instagram {
+      color: var(--brand-instagram);
+      border: 2px solid var(--brand-instagram);
+      box-shadow: 0 0 10px rgba(225, 48, 108, 0.2);
+      text-shadow: 0 0 4px var(--brand-instagram);
+    }
+    .btn-instagram:hover {
+      background: var(--brand-instagram);
+      color: #ffffff;
+      box-shadow: 0 0 25px var(--brand-instagram);
+      text-shadow: none;
+    }
+
+    .btn-linkedin {
+      color: var(--brand-linkedin);
+      border: 2px solid var(--brand-linkedin);
+      box-shadow: 0 0 10px rgba(0, 119, 181, 0.2);
+      text-shadow: 0 0 4px var(--brand-linkedin);
+    }
+    .btn-linkedin:hover {
+      background: var(--brand-linkedin);
+      color: #ffffff;
+      box-shadow: 0 0 25px var(--brand-linkedin);
+      text-shadow: none;
+    }
+
     /* ENLACE LEGAL DISCRETO SOLICITADO */
     .legal-link {
       color: rgba(0, 240, 255, 0.35); /* Letras azul cian muy suaves y atenuadas */
@@ -392,6 +487,16 @@
   <footer>
     Diana Helen Duque escritora todos los derechos reservados © 2026 <br>
     Plataforma integrada en el ecosistema digital de <span>Arkanetx</span> <br>
+    
+    <!-- BOTONERA NEÓN SOCIAL CON COLORES DE ORIGEN INTERACTIVOS -->
+    <div class="footer-socials">
+      <a href="https://www.tiktok.com/@dianahelenduque?_r=1&_t=ZN-97hKsmakGQw" class="btn-social-neon btn-tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.facebook.com/profile.php?id=61553584610408" class="btn-social-neon btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://x.com/dianahelenduqu3?s=21" class="btn-social-neon btn-x" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      <a href="https://www.instagram.com/dianahelenduque?igsh=MWN0ZnlkaHprcWJzdQ==" class="btn-social-neon btn-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/in/diana-helen-duque-059572a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-social-neon btn-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+
     <a href="legal.html" class="legal-link">📡 Aviso Legal y Privacidad</a>
   </footer>
 
