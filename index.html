@@ -88,9 +88,9 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      /* DISEÑO CON CIBORG2.JPG COMO FONDO DE PANTALLA + CAPA ATMOSFÉRICA PARA LEGIBILIDAD */
-      background: linear-gradient(180deg, rgba(11, 6, 24, 0.88) 0%, rgba(4, 4, 10, 0.95) 100%), 
-                  url('ciborg2.JPG') no-repeat center center fixed;
+      /* AJUSTE: Gradiente mucho más sutil (de 0.88/0.95 a 0.28/0.45) y posicionamiento 'center top' para ver la cabeza de ciborg2.JPG */
+      background: linear-gradient(180deg, rgba(11, 6, 24, 0.28) 0%, rgba(4, 4, 10, 0.45) 100%), 
+                  url('ciborg2.JPG') no-repeat center top fixed;
       background-size: cover;
       color: var(--text-pure);
       min-height: 100vh;
@@ -185,7 +185,8 @@
       flex-wrap: wrap;
       gap: 20px;
       padding: 18px 20px;
-      background: rgba(4, 4, 10, 0.85);
+      /* AJUSTE: Reducción sutil de opacidad en el nav para acompañar la estética general */
+      background: rgba(4, 4, 10, 0.65);
       backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
@@ -330,11 +331,14 @@
     }
 
     .card {
-      background: rgba(4, 4, 10, 0.7);
-      backdrop-filter: blur(8px);
+      /* AJUSTE: Bajado de rgba(4, 4, 10, 0.7) a 0.28 para hacerlo mucho más translúcido y apreciar el arte de fondo */
+      background: rgba(4, 4, 10, 0.28);
+      /* AJUSTE: Subido de 8px a 14px para mantener el texto perfectamente nítido y legible sobre la transparencia */
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       padding: 35px 30px;
       border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1); /* Microborde sutilmente mejorado */
       position: relative;
       overflow: hidden;
       transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
@@ -356,6 +360,7 @@
       transform: translateY(-8px);
       border-color: rgba(0, 240, 255, 0.4);
       box-shadow: 0 15px 35px rgba(0, 240, 255, 0.15);
+      background: rgba(4, 4, 10, 0.38); /* Transición interactiva suave al pasar el mouse */
     }
 
     .card h3 {
@@ -369,7 +374,7 @@
     }
 
     .card p {
-      color: var(--text-muted);
+      color: var(--text-pure); /* Optimizado a text-pure para compensar el cristal más claro y leer sin esfuerzo */
       font-size: 1em;
       margin: 0;
       line-height: 1.6;
@@ -403,6 +408,8 @@
       height: auto;
       max-height: 520px;
       object-fit: cover;
+      /* AJUSTE: Forzamos la posición arriba-centro para rescatar por completo la cabeza de la imagen vertical alien1.JPG */
+      object-position: center top; 
       display: block;
     }
 
