@@ -65,6 +65,7 @@
     /* VARIABLES RGB NEÓN Y PALETA CIBER-LITERARIA */
     :root {
       --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB */
+      --neon-violet: rgb(157, 0, 255);     /* Violeta Neón RGB */
       --neon-blue: rgb(0, 240, 255);       /* Azul Fluorescente RGB */
       --bg-space: rgb(11, 6, 24);          /* Fondo profundo */
       --bg-void: rgb(4, 4, 10);            /* Fondo oscuro absoluto */
@@ -87,47 +88,98 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(circle at top, var(--bg-space), var(--bg-void));
+      /* DISEÑO CON CIBORG2.JPG COMO FONDO DE PANTALLA + CAPA ATMOSFÉRICA PARA LEGIBILIDAD */
+      background: linear-gradient(180deg, rgba(11, 6, 24, 0.88) 0%, rgba(4, 4, 10, 0.95) 100%), 
+                  url('ciborg2.JPG') no-repeat center center fixed;
+      background-size: cover;
       color: var(--text-pure);
       min-height: 100vh;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* HEADER PROFESIONAL CON GRADIENTE */
+    /* HEADER REDISEÑADO CON ESTRUCTURA PARA EL NOMBRE Y CIBORG1.JPG AL LADO */
     header {
       padding: 60px 20px 40px 20px;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(255, 0, 127, 0.12), transparent);
+      background: linear-gradient(180deg, rgba(255, 0, 127, 0.15), transparent);
       border-bottom: 1px solid rgba(255, 0, 127, 0.2);
     }
 
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 35px;
+      max-width: 1100px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    /* Marco Estético Vanguardista para la imagen ciborg1.JPG */
+    .profile-presentation-frame {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-violet));
+      box-shadow: 0 0 25px rgba(255, 0, 127, 0.4), 0 0 45px rgba(157, 0, 255, 0.3);
+    }
+
+    .profile-presentation-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 3px solid var(--bg-void);
+    }
+
+    .header-text-block {
+      text-align: left;
+    }
+
+    /* EFECTO DE LETRAS EN NEÓN RGB ROSADO VIOLETA INMERSIVO */
     header h1 {
       margin: 0;
-      font-size: 3em;
-      font-weight: 800;
+      font-size: 3.4em;
+      font-weight: 900;
       letter-spacing: 2px;
       text-transform: uppercase;
-      background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 20px rgba(255, 0, 127, 0.4));
+      color: #ffffff;
+      text-shadow: 
+        0 0 6px #ffffff,
+        0 0 15px var(--neon-pink),
+        0 0 30px var(--neon-pink),
+        0 0 45px var(--neon-violet),
+        0 0 70px var(--neon-violet),
+        0 0 110px var(--neon-violet);
+      animation: neonGlowPulse 4s infinite alternate;
     }
 
     .author-tag {
-      font-size: 1.2em;
+      font-size: 1.25em;
       color: var(--neon-blue);
-      margin-top: 12px;
+      margin-top: 10px;
       font-weight: 600;
       letter-spacing: 3px;
       text-transform: uppercase;
       text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 
+    /* ANIMACIÓN PARA EL EFECTO NEÓN */
+    @keyframes neonGlowPulse {
+      0% {
+        text-shadow: 0 0 6px #ffffff, 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 45px var(--neon-violet), 0 0 70px var(--neon-violet), 0 0 110px var(--neon-violet);
+      }
+      100% {
+        text-shadow: 0 0 4px #ffffff, 0 0 12px rgba(255, 0, 127, 0.8), 0 0 25px rgba(255, 0, 127, 0.7), 0 0 40px rgba(157, 0, 255, 0.8), 0 0 60px rgba(157, 0, 255, 0.7), 0 0 90px rgba(157, 0, 255, 0.6);
+      }
+    }
+
     /* MENÚ DE NAVEGACIÓN RENDERIZADO */
     nav {
       display: flex;
-      justify(content): center;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
@@ -177,7 +229,7 @@
 
     /* SECCIÓN HERO - ENFOQUE LITERARIO */
     .hero {
-      padding: 90px 20px;
+      padding: 90px 20px 60px 20px;
       text-align: center;
       max-width: 850px;
       margin: 0 auto;
@@ -272,13 +324,14 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      padding: 40px 20px 80px 20px;
+      padding: 40px 20px 40px 20px;
       max-width: 1150px;
       margin: auto;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(4, 4, 10, 0.7);
+      backdrop-filter: blur(8px);
       padding: 35px 30px;
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.06);
@@ -320,6 +373,60 @@
       font-size: 1em;
       margin: 0;
       line-height: 1.6;
+    }
+
+    /* NUEVA SECCIÓN AVANZADA: EN CONJUNTO ALIEN1.JPG ABAJO 👇 */
+    .bottom-showcase {
+      max-width: 1150px;
+      margin: 50px auto 90px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .artwork-container {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid rgba(157, 0, 255, 0.3);
+      box-shadow: 0 0 40px rgba(157, 0, 255, 0.2), 0 0 20px rgba(0, 240, 255, 0.15);
+      transition: all 0.5s ease;
+    }
+
+    .artwork-container:hover {
+      border-color: var(--neon-pink);
+      box-shadow: 0 0 50px rgba(255, 0, 127, 0.4);
+      transform: scale(1.01);
+    }
+
+    .alien-display-img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .artwork-overlay-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(4, 4, 10, 0.95) 0%, rgba(4, 4, 10, 0.6) 75%, transparent 100%);
+      padding: 35px 25px 25px 25px;
+    }
+
+    .artwork-overlay-caption h3 {
+      margin: 0 0 6px 0;
+      font-size: 1.6em;
+      letter-spacing: 1px;
+      color: #ffffff;
+      text-shadow: 0 0 12px var(--neon-blue);
+    }
+
+    .artwork-overlay-caption p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 1.05em;
     }
 
     /* PIE DE PÁGINA AUTORAL */
@@ -441,14 +548,36 @@
       color: rgb(0, 240, 255);
       text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
     }
+
+    /* RESPONSIVIDAD ADICIONAL */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      .header-text-block {
+        text-align: center;
+      }
+      header h1 {
+        font-size: 2.4em;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <header>
-    <h1>Diana Helen Duque</h1>
-    <div class="author-tag">Escritora & Creadora Narrativa</div>
+    <div class="header-container">
+      <div class="profile-presentation-frame">
+        <img src="ciborg1.JPG" alt="Diana Helen Duque - Presentación" class="profile-presentation-img">
+      </div>
+      <div class="header-text-block">
+        <h1>Diana Helen Duque</h1>
+        <div class="author-tag">Escritora & Creadora Narrativa</div>
+      </div>
+    </div>
   </header>
 
   <nav>
@@ -488,7 +617,17 @@
 
     <div class="card">
       <h3>🚀 Universo Arkanetx</h3>
-      <p>Laboratorio transmedia donde las historias de la autora rompen las fronteras del papel para convertirse en experiences tecnológicas y artísticas en expansión.</p>
+      <p>Laboratorio transmedia donde las historias de la autora rompen las fronteras del papel para convertirse en experiencias tecnológicas y artísticas en expansión.</p>
+    </div>
+  </section>
+
+  <section class="bottom-showcase">
+    <div class="artwork-container">
+      <img src="alien1.JPG" alt="Vanguardia y Arte Transmedia - Alien" class="alien-display-img">
+      <div class="artwork-overlay-caption">
+        <h3>Dimensión Narrativa de Vanguardia</h3>
+        <p>Ecosistema estético y experimental integrado — Arkanetx Laboratorio</p>
+      </div>
     </div>
   </section>
 
