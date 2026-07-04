@@ -214,35 +214,91 @@
       text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
     }
 
-    /* 🎬 OPTIMIZACIÓN DE VIDEO DECORATIVO (SIN CORTES) */
-    .book-video {
-      width: 100%;
-      height: auto;                     /* Permite que la altura sea fluida */
-      aspect-ratio: 16 / 9;             /* Fuerza la proporción estándar de video */
-      object-fit: contain;              /* Muestra la filmación completa sin mutilar los bordes */
-      background: rgba(5, 8, 22, 0.5);  /* Fondo de seguridad para integrar el reproductor */
-      border-radius: 8px;
+    /* ⚡ CONTENEDOR UNIFICADO MP4 + BOTONES DE ACCESO INMEDIATO */
+    .video-wrapper {
+      position: relative;
       border: 1px solid rgba(0, 240, 255, 0.25);
+      border-radius: 8px;
+      overflow: hidden;
       margin-bottom: 18px;
       box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
+      background: rgba(5, 8, 22, 0.5);
+    }
+
+    .book-video {
+      width: 100%;
+      height: auto;                     
+      aspect-ratio: 16 / 9;             
+      object-fit: contain;              
       display: block;
     }
 
-    /* CONTENEDOR DE ACCIONES */
+    /* BARRA DE BOTONES INTEGRADOS AL MP4 */
+    .video-actions-bar {
+      display: flex;
+      background: rgba(3, 3, 8, 0.9);
+      border-top: 1px solid rgba(0, 240, 255, 0.25);
+      padding: 5px;
+      gap: 5px;
+    }
+
+    /* BOTONES MINI RGB NEÓN DE ACCESO DIRECTO */
+    .btn-video-mini {
+      font-size: 0.7em;
+      padding: 5px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-align: center;
+      flex: 1;
+      text-transform: uppercase;
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .btn-video-mini.pink {
+      color: #fff;
+      border: 1px solid var(--neon-pink);
+      background: rgba(255, 0, 127, 0.08);
+      text-shadow: 0 0 3px rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-video-mini.pink:hover {
+      background: var(--neon-pink);
+      color: var(--bg-void);
+      box-shadow: 0 0 10px var(--neon-pink);
+      text-shadow: none;
+    }
+
+    .btn-video-mini.blue {
+      color: #fff;
+      border: 1px solid var(--neon-blue);
+      background: rgba(0, 240, 255, 0.08);
+      text-shadow: 0 0 3px rgba(0, 240, 255, 0.6);
+    }
+
+    .btn-video-mini.blue:hover {
+      background: var(--neon-blue);
+      color: var(--bg-void);
+      box-shadow: 0 0 10px var(--neon-blue);
+      text-shadow: none;
+    }
+
+    /* CONTENEDOR DE ACCIONES PRINCIPALES */
     .book-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     /* 🔴 BOTONES ROSADO NEÓN RGB INTERACTIVOS */
     .btn-pink-neon {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 10px 16px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.9em;
+      font-size: 0.85em;
       letter-spacing: 0.5px;
       color: var(--text-pure);
       background: rgba(255, 0, 127, 0.05);
@@ -262,7 +318,6 @@
       transform: translateY(-2px);
     }
 
-    /* Botón con variante azul para la sección de contacto o suscripción */
     .btn-secondary {
       border-color: var(--neon-blue);
       box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
@@ -317,33 +372,53 @@
       
       <div class="shelf-books">
         
+        <!-- CARD 1: EL LITORAL NO OLVIDA II -->
         <div class="book-card">
           <div>
-            <div class="book-meta">Volumen I — Publicación Oficial</div>
-            <video class="book-video" autoplay loop muted playsinline>
-              <source src="libro1.mp4" type="video/mp4">
-            </video>
-            <h3>Obra Principal</h3>
+            <div class="book-meta">Volumen I — Edición Digital</div>
+            
+            <!-- Contenedor unido al MP4 -->
+            <div class="video-wrapper">
+              <video class="book-video" autoplay loop muted playsinline>
+                <source src="libro1.mp4" type="video/mp4">
+              </video>
+              <div class="video-actions-bar">
+                <a class="btn-video-mini pink" href="https://a.co/d/07C1DQmP" target="_blank">AMZN Quick</a>
+                <a class="btn-video-mini blue" href="https://play.google.com/store/books/details?id=1Q5-EQAAQBAJ" target="_blank">GPlay Play</a>
+              </div>
+            </div>
+
+            <h3>El Litoral No Olvida II</h3>
             <p>Novela insignia disponible en formatos físico y digital con distribución y alcance internacional.</p>
           </div>
           <div class="book-actions">
-            <a class="btn-pink-neon" href="#" target="_blank">Amazon</a>
-            <a class="btn-pink-neon" href="#" target="_blank">Dunken</a>
+            <a class="btn-pink-neon" href="https://www.kobo.com/AR/es/ebook/el-litoral-no-olvida-ii" target="_blank">Kobo Store</a>
+            <a class="btn-pink-neon btn-secondary" href="https://www.dunken.org/SYS.shop/indexMovi.php?cadena=Diana%20Helen%20Duque" target="_blank">Editorial Dunken</a>
           </div>
         </div>
 
+        <!-- CARD 2: LA MADRE MARÍA -->
         <div class="book-card">
           <div>
             <div class="book-meta">Volumen II — Narrativa Avanzada</div>
-            <video class="book-video" autoplay loop muted playsinline>
-              <source src="libro2.mp4" type="video/mp4">
-            </video>
-            <h3>Proyecto Editorial</h3>
+            
+            <!-- Contenedor unido al MP4 -->
+            <div class="video-wrapper">
+              <video class="book-video" autoplay loop muted playsinline>
+                <source src="libro2.mp4" type="video/mp4">
+              </video>
+              <div class="video-actions-bar">
+                <a class="btn-video-mini pink" href="https://a.co/d/0bv34yzW" target="_blank">AMZN Quick</a>
+                <a class="btn-video-mini blue" href="https://play.google.com/store/books/details?id=otNlEQAAQBAJ" target="_blank">GPlay Play</a>
+              </div>
+            </div>
+
+            <h3>La Madre María</h3>
             <p>Serie literaria en curso enfocada en narrativas de vanguardia, hibridación artística y prosa experimental.</p>
           </div>
           <div class="book-actions">
-            <a class="btn-pink-neon" href="#" target="_blank">Amazon</a>
-            <a class="btn-pink-neon" href="#" target="_blank">Dunken</a>
+            <a class="btn-pink-neon" href="https://www.kobo.com/AR/es/ebook/la-madre-maria" target="_blank">Kobo Store</a>
+            <a class="btn-pink-neon btn-secondary" href="https://www.dunken.org/SYS.shop/indexMovi.php?cadena=Diana%20Helen%20Duque" target="_blank">Editorial Dunken</a>
           </div>
         </div>
 
@@ -355,32 +430,53 @@
       
       <div class="shelf-books">
 
+        <!-- CARD 3: CUENTOS Y DRAGONES I -->
         <div class="book-card">
           <div>
             <div class="book-meta">Fase Alpha — Arkanetx</div>
-            <video class="book-video" autoplay loop muted playsinline>
-              <source src="libro3.mp4" type="video/mp4">
-            </video>
-            <h3>Antologías de Vanguardia</h3>
+            
+            <!-- Contenedor unido al MP4 -->
+            <div class="video-wrapper">
+              <video class="book-video" autoplay loop muted playsinline>
+                <source src="libro3.mp4" type="video/mp4">
+              </video>
+              <div class="video-actions-bar">
+                <a class="btn-video-mini pink" href="https://a.co/d/07TA1xoB" target="_blank">AMZN Quick</a>
+                <a class="btn-video-mini blue" href="https://play.google.com/store/books/details?id=HARkEQAAQBAJ" target="_blank">GPlay Play</a>
+              </div>
+            </div>
+
+            <h3>Cuentos y Dragones I</h3>
             <p>Contenido expandido, nuevos manuscritos y universos literarios entrelazados con sistemas digitales.</p>
           </div>
           <div class="book-actions">
-            <a class="btn-pink-neon" href="index.html">🏠 Inicio</a>
-            <a class="btn-pink-neon btn-secondary" href="contacto.html">📡 Suscribirse</a>
+            <a class="btn-pink-neon" href="https://www.kobo.com/AR/es/ebook/cuentos-y-dragones-1" target="_blank">Kobo Store</a>
+            <a class="btn-pink-neon btn-secondary" href="https://entrelectoresyescritores.com/red/login.php" target="_blank">Red Literaria</a>
           </div>
         </div>
 
+        <!-- CARD 4: MANUSCRITOS EXPANDIDOS -->
         <div class="book-card">
           <div>
             <div class="book-meta">Edición Especial — En Desarrollo</div>
-            <video class="book-video" autoplay loop muted playsinline>
-              <source src="libro4.mp4" type="video/mp4">
-            </video>
-            <h3>Manuscritos Expandidos</h3>
-            <p>Compilaciones estéticas exclusivas impresas bajo demanda y alojadas en el ecosistema digital.</p>
+            
+            <!-- Contenedor unido al MP4 -->
+            <div class="video-wrapper">
+              <video class="book-video" autoplay loop muted playsinline>
+                <source src="libro4.mp4" type="video/mp4">
+              </video>
+              <div class="video-actions-bar">
+                <a class="btn-video-mini pink" href="https://a.co/d/05BCSNQr" target="_blank">AMZN Vol I</a>
+                <a class="btn-video-mini blue" href="https://play.google.com/store/books/details?id=yLxUEQAAQBAJ" target="_blank">GPlay Play</a>
+              </div>
+            </div>
+
+            <h3>Manuscritos G-Vostok</h3>
+            <p>Compilaciones estéticas exclusivas impresas bajo demanda y alojadas en el ecosistema digital descentralizado.</p>
           </div>
           <div class="book-actions">
-            <a class="btn-pink-neon" href="contacto.html">Saber Más</a>
+            <a class="btn-pink-neon" href="https://a.co/d/03rNG0YX" target="_blank">AMZN Vol II</a>
+            <a class="btn-pink-neon btn-secondary" href="https://entrelectoresyescritores.com/red/login.php" target="_blank">Acceso Red</a>
           </div>
         </div>
 
