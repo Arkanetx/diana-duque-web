@@ -330,7 +330,6 @@
     }
 
     .card {
-      /* Cristal translúcido para fundirse ópticamente con el fondo ciborg2.JPG */
       background: rgba(4, 4, 10, 0.28);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -378,13 +377,16 @@
       line-height: 1.6;
     }
 
-    /* SECCIÓN CORREGIDA: EN CONJUNTO ALIEN1.JPG ABAJO (VISTA VERTICAL REAL) 👇 */
+    /* MODIFICACIÓN: ALIEN1.JPG AL LADO IZQUIERDO INFERIOR Y COMPLETO EN ESCRITORIO */
     .bottom-showcase {
       max-width: 1150px;
-      margin: 50px auto 90px auto;
+      margin: 60px auto 100px auto;
       padding: 0 20px;
       display: flex;
-      justify-content: center; /* Asegura el centrado en pantallas ultra-amplias */
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 45px;
     }
 
     .artwork-container {
@@ -394,9 +396,10 @@
       border: 2px solid rgba(157, 0, 255, 0.3);
       box-shadow: 0 0 40px rgba(157, 0, 255, 0.2), 0 0 20px rgba(0, 240, 255, 0.15);
       transition: all 0.5s ease;
-      /* CORRECCIÓN FUNDAMENTAL: Cambiado de 100% libre a un ancho portrait controlado */
-      max-width: 460px;
+      /* Ajuste proporcional para que no sea muy pequeña pero salga al 100% vertical */
+      max-width: 360px;
       width: 100%;
+      flex-shrink: 0;
     }
 
     .artwork-container:hover {
@@ -408,43 +411,49 @@
     .alien-display-img {
       width: 100%;
       height: auto;
-      display: block;
-      /* CORRECCIÓN: Eliminado max-height y object-fit cover que mutilaban el cuerpo */
+      display: block; /* Muestra la imagen vertical completa sin recortes */
     }
 
-    .artwork-overlay-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(4, 4, 10, 0.98) 0%, rgba(4, 4, 10, 0.7) 75%, transparent 100%);
-      padding: 35px 25px 25px 25px;
+    /* Bloque de texto posicionado al lado derecho */
+    .showcase-text-block {
+      text-align: left;
+      flex-grow: 1;
     }
 
-    .artwork-overlay-caption h3 {
-      margin: 0 0 6px 0;
-      font-size: 1.5em;
+    .showcase-text-block h3 {
+      margin: 0 0 15px 0;
+      font-size: 2.2em;
       letter-spacing: 1px;
       color: #ffffff;
       text-shadow: 0 0 12px var(--neon-blue);
     }
 
-    .artwork-overlay-caption p {
+    .showcase-text-block p {
       margin: 0;
       color: var(--text-muted);
-      font-size: 1em;
+      font-size: 1.2em;
+      line-height: 1.7;
     }
 
-    /* PIE DE PÁGINA AUTORAL */
+    /* PIE DE PÁGINA AUTORAL CON FONDO ESTRELLADO INTEGRADO NATIVAMENTE EN CSS */
     footer {
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 20px;
       color: rgb(110, 105, 130);
       font-size: 0.95em;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(4, 4, 10, 0.95);
       letter-spacing: 1px;
       line-height: 1.8;
+      
+      /* MODIFICACIÓN: Patrón de gradientes radiales matemáticos para generar el campo de estrellas infinito */
+      background-color: var(--bg-void);
+      background-image: 
+        radial-gradient(white, rgba(255,255,255,.3) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.2) 1.5px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 25px),
+        radial-gradient(rgba(157, 0, 255, 0.15), transparent 60px);
+      background-size: 350px 350px, 450px 450px, 250px 250px, 500px 500px;
+      background-position: 0 0, 70px 120px, 150px 30px, 200px 250px;
     }
     
     footer span {
@@ -555,7 +564,7 @@
       text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
     }
 
-    /* RESPONSIVIDAD ADICIONAL */
+    /* RESPONSIVIDAD AVANZADA: OPTIMIZACIÓN Y RENDERIZADO TOTAL PARA TELÉFONOS 👇 */
     @media (max-width: 768px) {
       .header-container {
         flex-direction: column;
@@ -567,6 +576,27 @@
       }
       header h1 {
         font-size: 2.4em;
+      }
+
+      /* Reordenamiento adaptativo para smartphones en la sección del Alien */
+      .bottom-showcase {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+        margin: 40px auto 60px auto;
+      }
+      .artwork-container {
+        max-width: 290px; /* Tamaño ideal y optimizado para pantallas touch móviles */
+        margin: 0 auto;
+      }
+      .showcase-text-block {
+        text-align: center;
+      }
+      .showcase-text-block h3 {
+        font-size: 1.7em;
+      }
+      .showcase-text-block p {
+        font-size: 1.05em;
       }
     }
   </style>
@@ -630,10 +660,10 @@
   <section class="bottom-showcase">
     <div class="artwork-container">
       <img src="alien1.JPG" alt="Vanguardia y Arte Transmedia - Alien" class="alien-display-img">
-      <div class="artwork-overlay-caption">
-        <h3>Dimensión Narrativa de Vanguardia</h3>
-        <p>Ecosistema estético y experimental integrado — Arkanetx Laboratorio</p>
-      </div>
+    </div>
+    <div class="showcase-text-block">
+      <h3>Dimensión Narrativa de Vanguardia</h3>
+      <p>Ecosistema estético y experimental integrado — Arkanetx Laboratorio</p>
     </div>
   </section>
 
