@@ -8,6 +8,8 @@
         :root {
             --neon-pink: #ff007f;
             --neon-blue: #00f0ff;
+            --neon-yellow: #ffff00;
+            --fire-orange: #ff5500;
             --bg-dark: #050510;
             --card-bg: rgba(15, 15, 35, 0.7);
             --text-color: #ffffff;
@@ -92,32 +94,86 @@
             text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
         }
 
-        /* BOTÓN DE RETORNO Y ACCIÓN RGB (ROSADO Y AZUL) */
-        .btn-rgb-neon {
+        /* BOTONES CON EFECTO FUEGO ROSADO RGB */
+        .btn-rgb-neon, .interaction-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 12px 32px;
-            margin: 15px 0 35px 0;
+            margin: 15px 0 25px 0;
             font-size: 0.95rem;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #ffffff;
             text-decoration: none;
-            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            background: linear-gradient(45deg, var(--neon-pink), var(--fire-orange), #ff00aa, var(--neon-pink));
+            background-size: 300% 300%;
             border: none;
             border-radius: 50px;
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), 0 0 15px rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 15px var(--neon-pink), 0 0 25px var(--fire-orange), inset 0 0 10px rgba(255, 255, 255, 0.4);
+            animation: firePinkShift 3s infinite ease-in-out;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 10;
             cursor: pointer;
         }
 
-        .btn-rgb-neon:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px var(--neon-pink), 0 0 25px var(--neon-blue);
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+        .btn-rgb-neon:hover, .interaction-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 0 30px var(--neon-pink), 0 0 45px #ff00aa, 0 0 15px var(--neon-yellow);
+        }
+
+        @keyframes firePinkShift {
+            0% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 15px var(--neon-pink), 0 0 25px var(--fire-orange);
+            }
+            50% {
+                background-position: 100% 50%;
+                box-shadow: 0 0 25px #ff00aa, 0 0 35px var(--fire-orange), 0 0 10px var(--neon-pink);
+            }
+            100% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 15px var(--neon-pink), 0 0 25px var(--fire-orange);
+            }
+        }
+
+        /* CONTENEDOR VIDEO CON NEÓN ROSADO, AZUL Y AMARILLO FLUORESCENTE */
+        .video-neon-container {
+            width: 100%;
+            max-width: 650px;
+            background: #000;
+            border-radius: 16px;
+            padding: 6px; /* Espacio para revelar el gradiente del marco */
+            position: relative;
+            margin-bottom: 35px;
+            z-index: 10;
+            background: linear-gradient(60deg, var(--neon-pink), var(--neon-blue), var(--neon-yellow), var(--neon-pink));
+            background-size: 400% 400%;
+            animation: neonBorderFlow 6s infinite linear;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6), 0 0 35px rgba(0, 240, 255, 0.4), 0 0 45px rgba(255, 255, 0, 0.4);
+        }
+
+        .video-neon-container video {
+            width: 100%;
+            display: block;
+            border-radius: 11px;
+            background-color: #020208;
+        }
+
+        @keyframes neonBorderFlow {
+            0% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 20px var(--neon-pink), 0 0 35px var(--neon-blue), 0 0 15px var(--neon-yellow);
+            }
+            50% {
+                background-position: 100% 50%;
+                box-shadow: 0 0 20px var(--neon-yellow), 0 0 35px var(--neon-pink), 0 0 40px var(--neon-blue);
+            }
+            100% {
+                background-position: 0% 50%;
+                box-shadow: 0 0 20px var(--neon-pink), 0 0 35px var(--neon-blue), 0 0 15px var(--neon-yellow);
+            }
         }
 
         /* Sección del Poema */
@@ -323,26 +379,6 @@
             transition: opacity 0.5s ease;
         }
 
-        .interaction-btn {
-            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
-            border: none;
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .interaction-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 0, 127, 0.8);
-        }
-
         .interaction-text {
             margin-top: 15px;
             color: rgba(255,255,255,0.7);
@@ -368,8 +404,16 @@
         <p class="subtitle">Eco Cósmico & Creatividad Interactiva</p>
     </div>
 
-    <!-- BOTÓN DE SALIDA REGRESO AL PORTAL PRINCIPAL (RGB ROSADO/AZUL) -->
+    <!-- BOTÓN DE SALIDA REGRESO AL PORTAL PRINCIPAL (CON ESTILO FUEGO ROSADO RGB) -->
     <a href="index.html" class="btn-rgb-neon">⬅ Volver al Inicio</a>
+
+    <!-- CONTENEDOR DEL VIDEO CON MARCO NEÓN TRICOLOR -->
+    <div class="video-neon-container">
+        <video id="main-video" controls loop muted>
+            <source src="dunk.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de este video.
+        </video>
+    </div>
 
     <!-- Sección del Poema Inspirador -->
     <div class="poem-container">
@@ -493,6 +537,13 @@
 
             initStarfield();
             initVumeterCanvas();
+            
+            // Intenta reproducir el video automáticamente al entrar
+            const video = document.getElementById('main-video');
+            if(video) {
+                video.play().catch(err => console.log("El video requiere interacción del usuario para reproducirse."));
+            }
+
             toggleTrack(0); 
         }
 
