@@ -64,20 +64,13 @@
   <style>
     /* VARIABLES RGB NEÓN Y PALETA CIBER-LITERARIA */
     :root {
-      --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB */
+      --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB Principal */
       --neon-violet: rgb(157, 0, 255);     /* Violeta Neón RGB */
-      --neon-blue: rgb(0, 240, 255);       /* Azul Fluorescente RGB */
+      --neon-blue: rgb(0, 240, 255);       /* Azul Fluorescente RGB (Filtros de acento) */
       --bg-space: rgb(11, 6, 24);          /* Fondo profundo */
       --bg-void: rgb(4, 4, 10);            /* Fondo oscuro absoluto */
       --text-pure: rgb(255, 255, 255);     /* Texto principal */
       --text-muted: rgb(184, 175, 212);    /* Texto descriptivo */
-      
-      /* COLORES DE ORIGEN RGB PARA REDES SOCIALES (EFECTO NEÓN) */
-      --brand-tiktok: rgb(0, 242, 234);     /* Cian ciber de TikTok */
-      --brand-facebook: rgb(24, 119, 242);  /* Azul oficial de FB */
-      --brand-x: rgb(235, 235, 235);         /* Blanco/Gris puro para X */
-      --brand-instagram: rgb(225, 48, 108); /* Rosa/Magneta de IG */
-      --brand-linkedin: rgb(0, 119, 181);   /* Azul corporativo LinkedIn */
     }
 
     * {
@@ -88,7 +81,6 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      /* Capa translúcida calibrada y posición alineada arriba para el fondo general ciborg2.JPG */
       background: linear-gradient(180deg, rgba(11, 6, 24, 0.28) 0%, rgba(4, 4, 10, 0.45) 100%), 
                   url('ciborg2.JPG') no-repeat center top fixed;
       background-size: cover;
@@ -98,7 +90,6 @@
       overflow-x: hidden;
     }
 
-    /* HEADER REDISEÑADO CON ESTRUCTURA PARA EL NOMBRE Y CIBORG1.JPG AL LADO */
     header {
       padding: 60px 20px 40px 20px;
       background: linear-gradient(180deg, rgba(255, 0, 127, 0.15), transparent);
@@ -115,7 +106,6 @@
       flex-wrap: wrap;
     }
 
-    /* Marco Estético Vanguardista para la imagen ciborg1.JPG */
     .profile-presentation-frame {
       position: relative;
       width: 150px;
@@ -139,7 +129,6 @@
       text-align: left;
     }
 
-    /* EFECTO DE LETRAS EN NEÓN RGB ROSADO VIOLETA INMERSIVO */
     header h1 {
       margin: 0;
       font-size: 3.4em;
@@ -167,7 +156,6 @@
       text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 
-    /* ANIMACIÓN PARA EL EFECTO NEÓN */
     @keyframes neonGlowPulse {
       0% {
         text-shadow: 0 0 6px #ffffff, 0 0 15px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 45px var(--neon-violet), 0 0 70px var(--neon-violet), 0 0 110px var(--neon-violet);
@@ -177,7 +165,6 @@
       }
     }
 
-    /* MENÚ DE NAVEGACIÓN RENDERIZADO */
     nav {
       display: flex;
       justify-content: center;
@@ -190,7 +177,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 0, 127, 0.2);
     }
 
     nav a {
@@ -207,7 +194,6 @@
       text-shadow: 0 0 10px var(--neon-pink);
     }
 
-    /* BOTÓN DESTACADO MULTICROMÁTICO EN EL NAV */
     .btn-libros-nav {
       color: var(--text-pure);
       background: transparent;
@@ -227,7 +213,6 @@
       text-shadow: none;
     }
 
-    /* SECCIÓN HERO - ENFOQUE LITERARIO */
     .hero {
       padding: 90px 20px 60px 20px;
       text-align: center;
@@ -250,18 +235,17 @@
       margin: 15px auto 35px auto;
     }
 
-    /* ESTILO PARA EL VIDEO DECORATIVO DEL LIBRO MÁGICO */
     .video-decoracion {
       max-width: 100%;
       width: 480px;
       border-radius: 16px;
-      border: 2px solid rgba(0, 240, 255, 0.3);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.2), 0 0 15px rgba(255, 0, 127, 0.1);
+      border: 2px solid rgba(255, 0, 127, 0.3);
+      box-shadow: 0 0 30px rgba(255, 0, 127, 0.2), 0 0 15px rgba(157, 0, 255, 0.1);
       margin: 25px auto;
       display: block;
     }
 
-    /* CONTENEDOR DE BOTONES NEÓN INTERACTIVOS */
+    /* CONTENEDOR DE BOTONES NEÓN INTERACTIVOS UNIFICADOS */
     .buttons-container {
       display: flex;
       justify-content: center;
@@ -270,7 +254,7 @@
       margin-top: 35px;
     }
 
-    /* ESTILOS DE BOTONES INDIVIDUALES (ROSADO Y AZUL) */
+    /* ESTILO UNIFICADO: TODOS LOS BOTONES ACCIÓN AHORA SON NEÓN ROSADO */
     .btn-neon-pink {
       display: inline-block;
       padding: 14px 32px;
@@ -295,31 +279,6 @@
       transform: translateY(-3px);
     }
 
-    .btn-neon-blue {
-      display: inline-block;
-      padding: 14px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.05em;
-      letter-spacing: 1px;
-      color: var(--neon-blue);
-      background: transparent;
-      border: 2px solid var(--neon-blue);
-      box-shadow: 0 0 12px rgba(0, 240, 255, 0.3), inset 0 0 8px rgba(0, 240, 255, 0.2);
-      text-shadow: 0 0 5px var(--neon-blue);
-      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    .btn-neon-blue:hover {
-      background: var(--neon-blue);
-      color: var(--bg-void);
-      box-shadow: 0 0 30px var(--neon-blue), 0 0 10px rgba(0, 240, 255, 0.6);
-      text-shadow: none;
-      transform: translateY(-3px);
-    }
-
-    /* REJILLA DE PROYECTOS / TARJETAS DINÁMICAS */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -341,7 +300,6 @@
       transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
-    /* Línea decorativa superior en degradé */
     .card::before {
       content: '';
       position: absolute;
@@ -354,10 +312,10 @@
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0, 240, 255, 0.4);
-      box-shadow: 0 15px 35px rgba(0, 240, 255, 0.15);
+      border-color: rgba(255, 0, 127, 0.4);
+      box-shadow: 0 15px 35px rgba(255, 0, 127, 0.15);
       background: rgba(4, 4, 10, 0.38);
+      transform: translateY(-8px);
     }
 
     .card h3 {
@@ -377,7 +335,6 @@
       line-height: 1.6;
     }
 
-    /* MODIFICACIÓN: ALIEN1.JPG AL LADO IZQUIERDO INFERIOR Y COMPLETO EN ESCRITORIO */
     .bottom-showcase {
       max-width: 1150px;
       margin: 60px auto 100px auto;
@@ -393,10 +350,9 @@
       position: relative;
       border-radius: 24px;
       overflow: hidden;
-      border: 2px solid rgba(157, 0, 255, 0.3);
-      box-shadow: 0 0 40px rgba(157, 0, 255, 0.2), 0 0 20px rgba(0, 240, 255, 0.15);
+      border: 2px solid rgba(255, 0, 127, 0.3);
+      box-shadow: 0 0 40px rgba(255, 0, 127, 0.2), 0 0 20px rgba(157, 0, 255, 0.15);
       transition: all 0.5s ease;
-      /* Ajuste proporcional para que no sea muy pequeña pero salga al 100% vertical */
       max-width: 360px;
       width: 100%;
       flex-shrink: 0;
@@ -411,10 +367,9 @@
     .alien-display-img {
       width: 100%;
       height: auto;
-      display: block; /* Muestra la imagen vertical completa sin recortes */
+      display: block;
     }
 
-    /* Bloque de texto posicionado al lado derecho */
     .showcase-text-block {
       text-align: left;
       flex-grow: 1;
@@ -425,7 +380,7 @@
       font-size: 2.2em;
       letter-spacing: 1px;
       color: #ffffff;
-      text-shadow: 0 0 12px var(--neon-blue);
+      text-shadow: 0 0 12px var(--neon-pink);
     }
 
     .showcase-text-block p {
@@ -435,7 +390,6 @@
       line-height: 1.7;
     }
 
-    /* PIE DE PÁGINA AUTORAL CON FONDO ESTRELLADO INTEGRADO NATIVAMENTE EN CSS */
     footer {
       text-align: center;
       padding: 60px 20px;
@@ -445,13 +399,12 @@
       letter-spacing: 1px;
       line-height: 1.8;
       
-      /* MODIFICACIÓN: Patrón de gradientes radiales matemáticos para generar el campo de estrellas infinito */
       background-color: var(--bg-void);
       background-image: 
         radial-gradient(white, rgba(255,255,255,.3) 1px, transparent 30px),
         radial-gradient(white, rgba(255,255,255,.2) 1.5px, transparent 40px),
         radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 25px),
-        radial-gradient(rgba(157, 0, 255, 0.15), transparent 60px);
+        radial-gradient(rgba(255, 0, 127, 0.15), transparent 60px);
       background-size: 350px 350px, 450px 450px, 250px 250px, 500px 500px;
       background-position: 0 0, 70px 120px, 150px 30px, 200px 250px;
     }
@@ -460,7 +413,6 @@
       color: var(--neon-pink);
     }
 
-    /* CONTENEDOR DE REDES EN EL FOOTER */
     .footer-socials {
       display: flex;
       justify-content: center;
@@ -469,7 +421,7 @@
       margin: 25px 0 35px 0;
     }
 
-    /* ESTILO BASE BOTONES SOCIALES RGB NEÓN */
+    /* TODOS LOS BOTONES SOCIALES MODIFICADOS INTEGRALMENTE A NEÓN ROSADO */
     .btn-social-neon {
       display: inline-block;
       padding: 10px 24px;
@@ -479,78 +431,22 @@
       font-size: 0.9em;
       letter-spacing: 0.5px;
       background: transparent;
+      color: var(--neon-pink);
+      border: 2px solid var(--neon-pink);
+      box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+      text-shadow: 0 0 4px var(--neon-pink);
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    /* VARIANTES DE COLOR DE ORIGEN CON RESPUESTA HOVER INTENSA */
-    .btn-tiktok {
-      color: var(--brand-tiktok);
-      border: 2px solid var(--brand-tiktok);
-      box-shadow: 0 0 10px rgba(0, 242, 234, 0.2);
-      text-shadow: 0 0 4px var(--brand-tiktok);
-    }
-    .btn-tiktok:hover {
-      background: var(--brand-tiktok);
+    .btn-social-neon:hover {
+      background: var(--neon-pink);
       color: var(--bg-void);
-      box-shadow: 0 0 25px var(--brand-tiktok);
+      box-shadow: 0 0 25px var(--neon-pink);
       text-shadow: none;
     }
 
-    .btn-facebook {
-      color: var(--brand-facebook);
-      border: 2px solid var(--brand-facebook);
-      box-shadow: 0 0 10px rgba(24, 119, 242, 0.2);
-      text-shadow: 0 0 4px var(--brand-facebook);
-    }
-    .btn-facebook:hover {
-      background: var(--brand-facebook);
-      color: #ffffff;
-      box-shadow: 0 0 25px var(--brand-facebook);
-      text-shadow: none;
-    }
-
-    .btn-x {
-      color: var(--brand-x);
-      border: 2px solid var(--brand-x);
-      box-shadow: 0 0 10px rgba(235, 235, 235, 0.1);
-      text-shadow: 0 0 4px var(--brand-x);
-    }
-    .btn-x:hover {
-      background: var(--brand-x);
-      color: var(--bg-void);
-      box-shadow: 0 0 25px var(--brand-x);
-      text-shadow: none;
-    }
-
-    .btn-instagram {
-      color: var(--brand-instagram);
-      border: 2px solid var(--brand-instagram);
-      box-shadow: 0 0 10px rgba(225, 48, 108, 0.2);
-      text-shadow: 0 0 4px var(--brand-instagram);
-    }
-    .btn-instagram:hover {
-      background: var(--brand-instagram);
-      color: #ffffff;
-      box-shadow: 0 0 25px var(--brand-instagram);
-      text-shadow: none;
-    }
-
-    .btn-linkedin {
-      color: var(--brand-linkedin);
-      border: 2px solid var(--brand-linkedin);
-      box-shadow: 0 0 10px rgba(0, 119, 181, 0.2);
-      text-shadow: 0 0 4px var(--brand-linkedin);
-    }
-    .btn-linkedin:hover {
-      background: var(--brand-linkedin);
-      color: #ffffff;
-      box-shadow: 0 0 25px var(--brand-linkedin);
-      text-shadow: none;
-    }
-
-    /* ENLACE LEGAL DISCRETO */
     .legal-link {
-      color: rgba(0, 240, 255, 0.35);
+      color: rgba(255, 0, 127, 0.35);
       text-decoration: none;
       font-size: 0.85em;
       display: inline-block;
@@ -560,11 +456,10 @@
     }
 
     .legal-link:hover {
-      color: rgb(0, 240, 255);
-      text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+      color: rgb(255, 0, 127);
+      text-shadow: 0 0 8px rgba(255, 0, 127, 0.6);
     }
 
-    /* RESPONSIVIDAD AVANZADA: OPTIMIZACIÓN Y RENDERIZADO TOTAL PARA TELÉFONOS 👇 */
     @media (max-width: 768px) {
       .header-container {
         flex-direction: column;
@@ -577,8 +472,6 @@
       header h1 {
         font-size: 2.4em;
       }
-
-      /* Reordenamiento adaptativo para smartphones en la sección del Alien */
       .bottom-showcase {
         flex-direction: column;
         text-align: center;
@@ -586,7 +479,7 @@
         margin: 40px auto 60px auto;
       }
       .artwork-container {
-        max-width: 290px; /* Tamaño ideal y optimizado para pantallas touch móviles */
+        max-width: 290px;
         margin: 0 auto;
       }
       .showcase-text-block {
@@ -619,6 +512,7 @@
   <nav>
     <a href="index.html">Inicio</a>
     <a href="libros.html">Biblioteca</a>
+    <a href="gonom.html">Sound Diana</a>
     <a href="contacto.html">Contacto</a>
     <a class="btn-libros-nav" href="libros.html">Obras Destacadas</a>
   </nav>
@@ -636,7 +530,8 @@
 
     <div class="buttons-container">
       <a class="btn-neon-pink" href="libros.html">Explorar Libros</a>
-      <a class="btn-neon-blue" href="contacto.html">Contacto Directo</a>
+      <a class="btn-neon-pink" href="gonom.html">Portal Sound Diana 🎵</a>
+      <a class="btn-neon-pink" href="contacto.html">Contacto Directo</a>
     </div>
   </section>
 
@@ -672,11 +567,11 @@
     Plataforma integrada en el ecosistema digital Internacional <span>Arkanetx</span> <br>
     
     <div class="footer-socials">
-      <a href="https://www.tiktok.com/@dianahelenduque?_r=1&_t=ZN-97hKsmakGQw" class="btn-social-neon btn-tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
-      <a href="https://www.facebook.com/profile.php?id=61553584610408" class="btn-social-neon btn-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="https://x.com/dianahelenduqu3?s=21" class="btn-social-neon btn-x" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-      <a href="https://www.instagram.com/dianahelenduque?igsh=MWN0ZnlkaHprcWJzdQ==" class="btn-social-neon btn-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.linkedin.com/in/diana-helen-duque-059572a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-social-neon btn-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.tiktok.com/@dianahelenduque?_r=1&_t=ZN-97hKsmakGQw" class="btn-social-neon" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.facebook.com/profile.php?id=61553584610408" class="btn-social-neon" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://x.com/dianahelenduqu3?s=21" class="btn-social-neon" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      <a href="https://www.instagram.com/dianahelenduque?igsh=MWN0ZnlkaHprcWJzdQ==" class="btn-social-neon" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/in/diana-helen-duque-059572a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-social-neon" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
 
     <a href="legal.html" class="legal-link">📡 Aviso Legal y Privacidad</a>
