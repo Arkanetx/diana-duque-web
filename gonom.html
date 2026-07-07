@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Diana - Portal Interactivo</title>
+    <style>
+        :root {
+            --neon-pink: #ff007f;
+            --neon-blue: #00f0ff;
+            --bg-dark: #050510;
+            --card-bg: rgba(15, 15, 35, 0.7);
+            --text-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 20px;
+        }
+
+        /* Fondo Estrellado Dinámico */
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at center, #0c0c28 0%, #03030a 100%);
+        }
+
+        /* Título Portada RGB */
+        .header-container {
+            text-align: center;
+            margin-bottom: 40px;
+            z-index: 10;
+        }
+
+        .rgb-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+            color: #fff;
+            animation: rgbShift 6s infinite linear;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @keyframes rgbShift {
+            0% {
+                text-shadow: 3px 0 0 var(--neon-pink), -3px 0 0 var(--neon-blue), 0 0 15px var(--neon-pink);
+            }
+            33% {
+                text-shadow: -3px 0 0 var(--neon-pink), 3px 0 0 var(--neon-blue), 0 0 15px var(--neon-blue);
+            }
+            66% {
+                text-shadow: 0 3px 0 var(--neon-pink), 0 -3px 0 var(--neon-blue), 0 0 15px rgba(255, 0, 127, 0.8);
+            }
+            100% {
+                text-shadow: 3px 0 0 var(--neon-pink), -3px 0 0 var(--neon-blue), 0 0 15px var(--neon-pink);
+            }
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Sección del Poema */
+        .poem-container {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 240, 255, 0.1);
+            z-index: 10;
+        }
+
+        .poem-title {
+            font-size: 1.4rem;
+            color: var(--neon-blue);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        .poem-verse {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+        }
+
+        /* Contenedor del Vúmetro Principal */
+        .vumeter-box {
+            width: 100%;
+            max-width: 650px;
+            background: rgba(5, 5, 15, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.05);
+        }
+
+        .vumeter-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--neon-pink);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-align: center;
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+
+        canvas {
+            width: 100%;
+            height: 60px;
+            display: block;
+            background: #020205;
+            border-radius: 6px;
+        }
+
+        /* Lista de Reproductores de Audio */
+        .playlist {
+            width: 100%;
+            max-width: 650px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 10;
+            margin-bottom: 50px;
+        }
+
+        .audio-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 5px solid var(--neon-blue);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .audio-card.playing {
+            border-left-color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.2);
+            background: rgba(25, 15, 40, 0.8);
+        }
+
+        .audio-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .track-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        /* Controles Personalizados */
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-play-pause {
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+        }
+
+        .audio-card.playing .btn-play-pause {
+            border-color: var(--neon-pink);
+            color: var(--neon-pink);
+            box-shadow: 0 0 8px rgba(255, 0, 127, 0.2);
+        }
+
+        .btn-play-pause:hover {
+            transform: scale(1.05);
+            background: rgba(0, 240, 255, 0.1);
+        }
+
+        .audio-card.playing .btn-play-pause:hover {
+            background: rgba(255, 0, 127, 0.1);
+        }
+
+        /* Línea de tiempo */
+        .timeline-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .time-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #1a1a3a;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .time-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--neon-blue);
+            box-shadow: 0 0 8px var(--neon-blue);
+            transition: transform 0.1s;
+        }
+
+        .audio-card.playing .time-slider::-webkit-slider-thumb {
+            background: var(--neon-pink);
+            box-shadow: 0 0 8px var(--neon-pink);
+        }
+
+        .time-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.3);
+        }
+
+        .time-display {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            min-width: 35px;
+            font-family: monospace;
+        }
+
+        /* Aviso de interacción */
+        .interaction-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 3, 10, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 0.5s ease;
+        }
+
+        .interaction-btn {
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            border: none;
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .interaction-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 0, 127, 0.8);
+        }
+
+        .interaction-text {
+            margin-top: 15px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Capa de Interacción Inicial -->
+    <div class="interaction-overlay" id="overlay">
+        <button class="interaction-btn" onclick="initPage()">Entrar al Universo</button>
+        <p class="interaction-text">Haz clic para activar la experiencia sonora y visual</p>
+    </div>
+
+    <!-- Fondo de estrellas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Encabezado Principal -->
+    <div class="header-container">
+        <h1 class="rgb-title" id="main-title">Sound Diana</h1>
+        <p class="subtitle">Eco Cósmico & Creatividad Interactiva</p>
+    </div>
+
+    <!-- Sección del Poema Inspirador -->
+    <div class="poem-container">
+        <h2 class="poem-title">Navegantes de la Mente Estelar</h2>
+        <p class="poem-verse">Un libro es un navío con velas de papel,</p>
+        <p class="poem-verse">un puente hacia la aurora que burla timonel.</p>
+        <p class="poem-verse">Donde los ojos leen, la mente alza su vuelo,</p>
+        <p class="poem-verse">rompiendo las fronteras de la tierra y del cielo.</p>
+        <p class="poem-verse">La imaginación dibuja galaxias en la mente,</p>
+        <p class="poem-verse">un mapa del futuro, magnético y ardiente.</p>
+        <p class="poem-verse">¡Que vibren las palabras en este mar plateado,</p>
+        <p class="poem-verse">donde reside el canto de un mundo transformado!</p>
+    </div>
+
+    <!-- Vúmetro Neon Master -->
+    <div class="vumeter-box">
+        <div class="vumeter-label">Vúmetro Neón RGB Real-Time</div>
+        <canvas id="vumeter-canvas"></canvas>
+    </div>
+
+    <!-- Lista de Canciones / Playlist -->
+    <div class="playlist">
+        <!-- Track 1 -->
+        <div class="audio-card" id="card-0">
+            <div class="audio-info">
+                <span class="track-name">hadas.mp3</span>
+            </div>
+            <div class="controls-row">
+                <button class="btn-play-pause" onclick="toggleTrack(0)" id="btn-0">▶</button>
+                <div class="timeline-container">
+                    <span class="time-display" id="current-0">0:00</span>
+                    <input type="range" class="time-slider" id="slider-0" value="0" min="0" max="100" oninput="seekTrack(0, this.value)">
+                    <span class="time-display" id="duration-0">0:00</span>
+                </div>
+            </div>
+            <audio id="audio-0" src="hadas.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="audio-card" id="card-1">
+            <div class="audio-info">
+                <span class="track-name">dorado.mp3</span>
+            </div>
+            <div class="controls-row">
+                <button class="btn-play-pause" onclick="toggleTrack(1)" id="btn-1">▶</button>
+                <div class="timeline-container">
+                    <span class="time-display" id="current-1">0:00</span>
+                    <input type="range" class="time-slider" id="slider-1" value="0" min="0" max="100" oninput="seekTrack(1, this.value)">
+                    <span class="time-display" id="duration-1">0:00</span>
+                </div>
+            </div>
+            <audio id="audio-1" src="dorado.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="audio-card" id="card-2">
+            <div class="audio-info">
+                <span class="track-name">helen-hadas.mp3</span>
+            </div>
+            <div class="controls-row">
+                <button class="btn-play-pause" onclick="toggleTrack(2)" id="btn-2">▶</button>
+                <div class="timeline-container">
+                    <span class="time-display" id="current-2">0:00</span>
+                    <input type="range" class="time-slider" id="slider-2" value="0" min="0" max="100" oninput="seekTrack(2, this.value)">
+                    <span class="time-display" id="duration-2">0:00</span>
+                </div>
+            </div>
+            <audio id="audio-2" src="helen-hadas.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- Track 4 -->
+        <div class="audio-card" id="card-3">
+            <div class="audio-info">
+                <span class="track-name">heredero.mp3</span>
+            </div>
+            <div class="controls-row">
+                <button class="btn-play-pause" onclick="toggleTrack(3)" id="btn-3">▶</button>
+                <div class="timeline-container">
+                    <span class="time-display" id="current-3">0:00</span>
+                    <input type="range" class="time-slider" id="slider-3" value="0" min="0" max="100" oninput="seekTrack(3, this.value)">
+                    <span class="time-display" id="duration-3">0:00</span>
+                </div>
+            </div>
+            <audio id="audio-3" src="heredero.mp3" preload="metadata"></audio>
+        </div>
+
+        <!-- Track 5 -->
+        <div class="audio-card" id="card-4">
+            <div class="audio-info">
+                <span class="track-name">selva.mp3</span>
+            </div>
+            <div class="controls-row">
+                <button class="btn-play-pause" onclick="toggleTrack(4)" id="btn-4">▶</button>
+                <div class="timeline-container">
+                    <span class="time-display" id="current-4">0:00</span>
+                    <input type="range" class="time-slider" id="slider-4" value="0" min="0" max="100" oninput="seekTrack(4, this.value)">
+                    <span class="time-display" id="duration-4">0:00</span>
+                </div>
+            </div>
+            <audio id="audio-4" src="selva.mp3" preload="metadata"></audio>
+        </div>
+    </div>
+
+    <script>
+        const totalTracks = 5;
+        let currentPlayingIndex = -1;
+        let audioContext, analyser, sourceNodes = [], dataArray, isAudioContextInitialized = false;
+
+        const audios = Array.from({ length: totalTracks }, (_, i) => document.getElementById(`audio-${i}`));
+        const buttons = Array.from({ length: totalTracks }, (_, i) => document.getElementById(`btn-${i}`));
+        const sliders = Array.from({ length: totalTracks }, (_, i) => document.getElementById(`slider-${i}`));
+        const currentTimes = Array.from({ length: totalTracks }, (_, i) => document.getElementById(`current-${i}`));
+        const durations = Array.from({ length: totalTracks }, (_, i) => document.getElementById(`duration-${i}`));
+        const cards = Array.from({ length: totalTracks }, (_, i) => document.getElementById(`card-${i}`));
+
+        function initPage() {
+            document.getElementById('overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = 'none';
+            }, 500);
+
+            initStarfield();
+            initVumeterCanvas();
+            toggleTrack(0); 
+        }
+
+        function initStarfield() {
+            const canvas = document.getElementById('starfield');
+            const ctx = canvas.getContext('2d');
+            
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const stars = Array.from({ length: 150 }, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 1.5 + 0.5,
+                twinkleSpeed: Math.random() * 0.03 + 0.01,
+                phase: Math.random() * Math.PI
+            }));
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                stars.forEach(star => {
+                    star.phase += star.twinkleSpeed;
+                    const alpha = (Math.sin(star.phase) + 1) / 2;
+                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.8 + 0.2})`;
+                    ctx.beginPath();
+                    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        function setupWebAudio(index) {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                analyser.fftSize = 64;
+                const bufferLength = analyser.frequencyBinCount;
+                dataArray = new Uint8Array(bufferLength);
+                isAudioContextInitialized = true;
+            }
+            
+            if (!sourceNodes[index]) {
+                try {
+                    const source = audioContext.createMediaElementSource(audios[index]);
+                    source.connect(analyser);
+                    analyser.connect(audioContext.destination);
+                    sourceNodes[index] = source;
+                } catch (e) {
+                    console.log("Simulación visual de respaldo activa.");
+                }
+            }
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+        }
+
+        function toggleTrack(index) {
+            setupWebAudio(index);
+
+            if (currentPlayingIndex === index) {
+                if (!audios[index].paused) {
+                    audios[index].pause();
+                    buttons[index].innerText = "▶";
+                    cards[index].classList.remove('playing');
+                } else {
+                    audios[index].play().catch(err => console.log(err));
+                    buttons[index].innerText = "⏸";
+                    cards[index].classList.add('playing');
+                }
+                return;
+            }
+
+            if (currentPlayingIndex !== -1) {
+                audios[currentPlayingIndex].pause();
+                buttons[currentPlayingIndex].innerText = "▶";
+                cards[currentPlayingIndex].classList.remove('playing');
+            }
+
+            currentPlayingIndex = index;
+            audios[index].play().catch(err => console.log(err));
+            buttons[index].innerText = "⏸";
+            cards[index].classList.add('playing');
+        }
+
+        function seekTrack(index, value) {
+            const audio = audios[index];
+            if (audio.duration) {
+                audio.currentTime = (value / 100) * audio.duration;
+            }
+        }
+
+        audios.forEach((audio, index) => {
+            audio.addEventListener('loadedmetadata', () => {
+                durations[index].innerText = formatTime(audio.duration);
+            });
+
+            audio.addEventListener('timeupdate', () => {
+                if (!isNaN(audio.duration)) {
+                    sliders[index].value = (audio.currentTime / audio.duration) * 100;
+                    currentTimes[index].innerText = formatTime(audio.currentTime);
+                }
+            });
+
+            audio.addEventListener('ended', () => {
+                buttons[index].innerText = "▶";
+                cards[index].classList.remove('playing');
+                sliders[index].value = 0;
+                currentTimes[index].innerText = "0:00";
+                
+                let nextIndex = (index + 1) % totalTracks;
+                toggleTrack(nextIndex);
+            });
+        });
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return "0:00";
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function initVumeterCanvas() {
+            const canvas = document.getElementById('vumeter-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.clientWidth - 30;
+                canvas.height = 60;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            const barCount = 32;
+            let simulationArray = Array(barCount).fill(0);
+
+            function drawVumeter() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                let activeAudio = currentPlayingIndex !== -1 ? audios[currentPlayingIndex] : null;
+                let isPlaying = activeAudio && !activeAudio.paused;
+
+                if (isAudioContextInitialized && isPlaying && sourceNodes[currentPlayingIndex]) {
+                    analyser.getByteFrequencyData(dataArray);
+                }
+
+                const w = canvas.width / barCount;
+                for (let i = 0; i < barCount; i++) {
+                    let val = 0;
+                    
+                    if (isPlaying) {
+                        if (isAudioContextInitialized && sourceNodes[currentPlayingIndex] && dataArray && dataArray[i] !== undefined) {
+                            val = dataArray[i] / 255 * canvas.height;
+                        } else {
+                            simulationArray[i] += (Math.random() - 0.5) * 15;
+                            simulationArray[i] = Math.max(5, Math.min(canvas.height - 5, simulationArray[i]));
+                            val = simulationArray[i] * 0.4 + (Math.sin(Date.now() * 0.005 + i * 0.3) + 1) * 15;
+                        }
+                    } else {
+                        simulationArray[i] *= 0.85;
+                        val = Math.max(2, simulationArray[i]);
+                    }
+
+                    const gradient = ctx.createLinearGradient(0, canvas.height, 0, 0);
+                    gradient.addColorStop(0, '#ff007f'); 
+                    gradient.addColorStop(0.5, '#b000ff'); 
+                    gradient.addColorStop(1, '#00f0ff'); 
+
+                    ctx.fillStyle = gradient;
+                    ctx.shadowBlur = isPlaying ? 8 : 0;
+                    ctx.shadowColor = i % 2 === 0 ? '#ff007f' : '#00f0ff';
+
+                    const padding = 3;
+                    ctx.fillRect(i * w + padding, canvas.height - val, w - padding * 2, val);
+                }
+                
+                ctx.shadowBlur = 0;
+                requestAnimationFrame(drawVumeter);
+            }
+            drawVumeter();
+        }
+    </script>
+</body>
+</html>
