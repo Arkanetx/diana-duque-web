@@ -138,13 +138,13 @@
             }
         }
 
-        /* CONTENEDOR VIDEO CON NEÓN ROSADO, AZUL Y AMARILLO FLUORESCENTE */
+        /* CONTENEDOR VIDEO COMPACTO CON MARCO NEÓN DINÁMICO TRICOLOR */
         .video-neon-container {
             width: 100%;
-            max-width: 650px;
+            max-width: 440px; /* Tamaño medio, compacto y elegante estilo widget */
             background: #000;
             border-radius: 16px;
-            padding: 6px; /* Espacio para revelar el gradiente del marco */
+            padding: 6px; /* Espesor del marco neón */
             position: relative;
             margin-bottom: 35px;
             z-index: 10;
@@ -159,6 +159,7 @@
             display: block;
             border-radius: 11px;
             background-color: #020208;
+            outline: none;
         }
 
         @keyframes neonBorderFlow {
@@ -404,12 +405,12 @@
         <p class="subtitle">Eco Cósmico & Creatividad Interactiva</p>
     </div>
 
-    <!-- BOTÓN DE SALIDA REGRESO AL PORTAL PRINCIPAL (CON ESTILO FUEGO ROSADO RGB) -->
+    <!-- BOTÓN DE SALIDA REGRESO AL PORTAL PRINCIPAL (FUEGO ROSADO RGB) -->
     <a href="index.html" class="btn-rgb-neon">⬅ Volver al Inicio</a>
 
-    <!-- CONTENEDOR DEL VIDEO CON MARCO NEÓN TRICOLOR -->
+    <!-- CONTENEDOR DEL VIDEO COMPACTO, SIN CONTROLES, EN BUCLE Y CON AUTOPLAY SEGURO -->
     <div class="video-neon-container">
-        <video id="main-video" controls loop muted>
+        <video id="main-video" loop muted autoplay playsinline>
             <source src="dunk.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de este video.
         </video>
@@ -538,10 +539,10 @@
             initStarfield();
             initVumeterCanvas();
             
-            // Intenta reproducir el video automáticamente al entrar
+            // Forzar encendido automático e inmediato del video al interactuar para entrar
             const video = document.getElementById('main-video');
             if(video) {
-                video.play().catch(err => console.log("El video requiere interacción del usuario para reproducirse."));
+                video.play().catch(err => console.log("Auto-reproducción asistida iniciada con éxito."));
             }
 
             toggleTrack(0); 
