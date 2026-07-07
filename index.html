@@ -64,9 +64,9 @@
   <style>
     /* VARIABLES RGB NEÓN Y PALETA CIBER-LITERARIA */
     :root {
-      --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB Principal */
+      --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB */
       --neon-violet: rgb(157, 0, 255);     /* Violeta Neón RGB */
-      --neon-blue: rgb(0, 240, 255);       /* Azul Fluorescente RGB (Filtros de acento) */
+      --neon-blue: rgb(0, 240, 255);       /* Azul Fluorescente RGB */
       --bg-space: rgb(11, 6, 24);          /* Fondo profundo */
       --bg-void: rgb(4, 4, 10);            /* Fondo oscuro absoluto */
       --text-pure: rgb(255, 255, 255);     /* Texto principal */
@@ -170,7 +170,7 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 25px;
       padding: 18px 20px;
       background: rgba(4, 4, 10, 0.65);
       backdrop-filter: blur(12px);
@@ -192,25 +192,6 @@
     nav a:hover {
       color: var(--neon-pink);
       text-shadow: 0 0 10px var(--neon-pink);
-    }
-
-    .btn-libros-nav {
-      color: var(--text-pure);
-      background: transparent;
-      border: 2px solid var(--neon-pink);
-      padding: 10px 22px;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .btn-libros-nav:hover {
-      background: var(--neon-pink);
-      color: var(--bg-void);
-      box-shadow: 0 0 25px var(--neon-pink);
-      text-shadow: none;
     }
 
     .hero {
@@ -245,7 +226,7 @@
       display: block;
     }
 
-    /* CONTENEDOR DE BOTONES NEÓN INTERACTIVOS UNIFICADOS */
+    /* CONTENEDOR DE BOTONES INTERACTIVOS */
     .buttons-container {
       display: flex;
       justify-content: center;
@@ -254,7 +235,7 @@
       margin-top: 35px;
     }
 
-    /* ESTILO UNIFICADO: TODOS LOS BOTONES ACCIÓN AHORA SON NEÓN ROSADO */
+    /* BOTONES NEÓN ROSADO CON LETRAS ALTAMENTE VISIBLES (ENLACES INTERNOS HTML) */
     .btn-neon-pink {
       display: inline-block;
       padding: 14px 32px;
@@ -263,18 +244,18 @@
       font-weight: 700;
       font-size: 1.05em;
       letter-spacing: 1px;
-      color: var(--neon-pink);
-      background: transparent;
+      color: #ffffff; /* Letras blancas puras para máxima visibilidad */
+      background: rgba(255, 0, 127, 0.12);
       border: 2px solid var(--neon-pink);
-      box-shadow: 0 0 12px rgba(255, 0, 127, 0.3), inset 0 0 8px rgba(255, 0, 127, 0.2);
-      text-shadow: 0 0 5px var(--neon-pink);
+      box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), inset 0 0 8px rgba(255, 0, 127, 0.2);
+      text-shadow: 0 0 6px #ffffff, 0 0 12px var(--neon-pink); /* Resplandor de texto para legibilidad perfecta */
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .btn-neon-pink:hover {
       background: var(--neon-pink);
       color: var(--bg-void);
-      box-shadow: 0 0 30px var(--neon-pink), 0 0 10px rgba(255, 0, 127, 0.6);
+      box-shadow: 0 0 32px var(--neon-pink), 0 0 12px rgba(255, 0, 127, 0.6);
       text-shadow: none;
       transform: translateY(-3px);
     }
@@ -413,6 +394,7 @@
       color: var(--neon-pink);
     }
 
+    /* CONTENEDOR REDES SOCIALES */
     .footer-socials {
       display: flex;
       justify-content: center;
@@ -421,28 +403,76 @@
       margin: 25px 0 35px 0;
     }
 
-    /* TODOS LOS BOTONES SOCIALES MODIFICADOS INTEGRALMENTE A NEÓN ROSADO */
-    .btn-social-neon {
+    /* ESTILO BASE PARA BOTONES SOCIALES INDIVIDUALES CON SUS COLORES RESPECTIVOS */
+    .btn-social {
       display: inline-block;
-      padding: 10px 24px;
+      padding: 11px 24px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: 700;
       font-size: 0.9em;
       letter-spacing: 0.5px;
-      background: transparent;
-      color: var(--neon-pink);
-      border: 2px solid var(--neon-pink);
-      box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
-      text-shadow: 0 0 4px var(--neon-pink);
+      color: #ffffff;
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    .btn-social-neon:hover {
-      background: var(--neon-pink);
-      color: var(--bg-void);
-      box-shadow: 0 0 25px var(--neon-pink);
-      text-shadow: none;
+    /* TikTok: Estilo oscuro con doble sombra cian y rosada */
+    .btn-social-tiktok {
+      background: #000000;
+      border: 2px solid rgb(0, 240, 255);
+      box-shadow: -2px -2px 8px rgba(0, 240, 255, 0.6), 2px 2px 8px rgba(255, 0, 127, 0.6);
+      text-shadow: 0 0 3px #ffffff;
+    }
+    .btn-social-tiktok:hover {
+      box-shadow: -4px -4px 15px rgb(0, 240, 255), 4px 4px 15px rgba(255, 0, 127, 0.9);
+      transform: translateY(-2px);
+    }
+
+    /* Facebook: Azul corporativo puro con neón azul */
+    .btn-social-facebook {
+      background: #1877F2;
+      border: 2px solid #1877F2;
+      box-shadow: 0 0 12px rgba(24, 119, 242, 0.5);
+    }
+    .btn-social-facebook:hover {
+      background: #145dbf;
+      box-shadow: 0 0 22px #1877F2;
+      transform: translateY(-2px);
+    }
+
+    /* X (Twitter): Negro minimalista con resplandor plata/blanco */
+    .btn-social-x {
+      background: #000000;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    .btn-social-x:hover {
+      background: #1c1c1c;
+      box-shadow: 0 0 20px #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Instagram: Degradado dinámico de Rojo, Rosado y Azul Neón */
+    .btn-social-instagram {
+      background: linear-gradient(45deg, rgb(230, 20, 60), rgb(255, 0, 127), rgb(0, 240, 255));
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
+    }
+    .btn-social-instagram:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 127, 0.8), 0 0 15px rgb(0, 240, 255);
+      transform: translateY(-2px);
+    }
+
+    /* LinkedIn: Azul profesional con brillo azul neón */
+    .btn-social-linkedin {
+      background: #0A66C2;
+      border: 2px solid #0A66C2;
+      box-shadow: 0 0 12px rgba(10, 102, 194, 0.5);
+    }
+    .btn-social-linkedin:hover {
+      background: #004b93;
+      box-shadow: 0 0 22px #0A66C2;
+      transform: translateY(-2px);
     }
 
     .legal-link {
@@ -514,7 +544,6 @@
     <a href="libros.html">Biblioteca</a>
     <a href="gonom.html">Sound Diana</a>
     <a href="contacto.html">Contacto</a>
-    <a class="btn-libros-nav" href="libros.html">Obras Destacadas</a>
   </nav>
 
   <section class="hero">
@@ -528,6 +557,7 @@
       Tu navegador no soporta el formato de video.
     </video>
 
+    <!-- BOTONES EXCLUSIVOS PARA SECCIONES INTERNAS EN NEÓN ROSADO CON TEXTO ALTAMENTE VISIBLE -->
     <div class="buttons-container">
       <a class="btn-neon-pink" href="libros.html">Explorar Libros</a>
       <a class="btn-neon-pink" href="gonom.html">Portal Sound Diana 🎵</a>
@@ -566,12 +596,13 @@
     Diana Helen Duque escritora todos los derechos reservados © 2026 <br>
     Plataforma integrada en el ecosistema digital Internacional <span>Arkanetx</span> <br>
     
+    <!-- REDES SOCIALES CON SUS RESPECTIVOS NOMBRES Y GAMAS CROMÁTICAS CORPORATIVAS INTERACTIVAS -->
     <div class="footer-socials">
-      <a href="https://www.tiktok.com/@dianahelenduque?_r=1&_t=ZN-97hKsmakGQw" class="btn-social-neon" target="_blank" rel="noopener noreferrer">TikTok</a>
-      <a href="https://www.facebook.com/profile.php?id=61553584610408" class="btn-social-neon" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="https://x.com/dianahelenduqu3?s=21" class="btn-social-neon" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-      <a href="https://www.instagram.com/dianahelenduque?igsh=MWN0ZnlkaHprcWJzdQ==" class="btn-social-neon" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.linkedin.com/in/diana-helen-duque-059572a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-social-neon" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.tiktok.com/@dianahelenduque?_r=1&_t=ZN-97hKsmakGQw" class="btn-social btn-social-tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.facebook.com/profile.php?id=61553584610408" class="btn-social btn-social-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://x.com/dianahelenduqu3?s=21" class="btn-social-x" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      <a href="https://www.instagram.com/dianahelenduque?igsh=MWN0ZnlkaHprcWJzdQ==" class="btn-social btn-social-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/in/diana-helen-duque-059572a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-social btn-social-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
 
     <a href="legal.html" class="legal-link">📡 Aviso Legal y Privacidad</a>
