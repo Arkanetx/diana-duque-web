@@ -44,10 +44,10 @@
             background: radial-gradient(circle at center, #0c0c28 0%, #03030a 100%);
         }
 
-        /* Título Portada RGB */
+        /* Título Portada RGB Continuo */
         .header-container {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             z-index: 10;
         }
 
@@ -58,7 +58,7 @@
             letter-spacing: 4px;
             position: relative;
             color: #fff;
-            animation: rgbShift 6s infinite linear;
+            animation: rgbShift 5s infinite linear;
             text-shadow: 0 0 10px rgba(255,255,255,0.5);
             cursor: pointer;
             user-select: none;
@@ -67,24 +67,57 @@
         @keyframes rgbShift {
             0% {
                 text-shadow: 3px 0 0 var(--neon-pink), -3px 0 0 var(--neon-blue), 0 0 15px var(--neon-pink);
+                color: #ffffff;
             }
             33% {
-                text-shadow: -3px 0 0 var(--neon-pink), 3px 0 0 var(--neon-blue), 0 0 15px var(--neon-blue);
+                text-shadow: -3px 0 0 var(--neon-blue), 3px 0 0 var(--neon-pink), 0 0 15px var(--neon-blue);
+                color: #f0f7ff;
             }
             66% {
                 text-shadow: 0 3px 0 var(--neon-pink), 0 -3px 0 var(--neon-blue), 0 0 15px rgba(255, 0, 127, 0.8);
+                color: #fff0f5;
             }
             100% {
                 text-shadow: 3px 0 0 var(--neon-pink), -3px 0 0 var(--neon-blue), 0 0 15px var(--neon-pink);
+                color: #ffffff;
             }
         }
 
         .subtitle {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.75);
             margin-top: 10px;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
+
+        /* BOTÓN DE RETORNO Y ACCIÓN RGB (ROSADO Y AZUL) */
+        .btn-rgb-neon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            margin: 15px 0 35px 0;
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-decoration: none;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), 0 0 15px rgba(0, 240, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .btn-rgb-neon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px var(--neon-pink), 0 0 25px var(--neon-blue);
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
         }
 
         /* Sección del Poema */
@@ -335,13 +368,16 @@
         <p class="subtitle">Eco Cósmico & Creatividad Interactiva</p>
     </div>
 
+    <!-- BOTÓN DE SALIDA REGRESO AL PORTAL PRINCIPAL (RGB ROSADO/AZUL) -->
+    <a href="index.html" class="btn-rgb-neon">⬅ Volver al Inicio</a>
+
     <!-- Sección del Poema Inspirador -->
     <div class="poem-container">
         <h2 class="poem-title">Navegantes de la Mente Estelar</h2>
         <p class="poem-verse">Un libro es un navío con velas de papel,</p>
         <p class="poem-verse">un puente hacia la aurora que burla timonel.</p>
         <p class="poem-verse">Donde los ojos leen, la mente alza su vuelo,</p>
-        <p class="poem-verse">rompiendo las fronteras de la tierra y del cielo.</p>
+        <p class="poem-verse">rompiendo las frontiers de la tierra y del cielo.</p>
         <p class="poem-verse">La imaginación dibuja galaxias en la mente,</p>
         <p class="poem-verse">un mapa del futuro, magnético y ardiente.</p>
         <p class="poem-verse">¡Que vibren las palabras en este mar plateado,</p>
@@ -359,7 +395,7 @@
         <!-- Track 1 -->
         <div class="audio-card" id="card-0">
             <div class="audio-info">
-                <span class="track-name">hadas.mp3</span>
+                <span class="track-name">🧚‍♀️ El Despertar de las Hadas</span>
             </div>
             <div class="controls-row">
                 <button class="btn-play-pause" onclick="toggleTrack(0)" id="btn-0">▶</button>
@@ -375,7 +411,7 @@
         <!-- Track 2 -->
         <div class="audio-card" id="card-1">
             <div class="audio-info">
-                <span class="track-name">dorado.mp3</span>
+                <span class="track-name">🌅 Horizonte Dorado</span>
             </div>
             <div class="controls-row">
                 <button class="btn-play-pause" onclick="toggleTrack(1)" id="btn-1">▶</button>
@@ -391,7 +427,7 @@
         <!-- Track 3 -->
         <div class="audio-card" id="card-2">
             <div class="audio-info">
-                <span class="track-name">helen-hadas.mp3</span>
+                <span class="track-name">✨ Helen en el Reino Fantástico</span>
             </div>
             <div class="controls-row">
                 <button class="btn-play-pause" onclick="toggleTrack(2)" id="btn-2">▶</button>
@@ -407,7 +443,7 @@
         <!-- Track 4 -->
         <div class="audio-card" id="card-3">
             <div class="audio-info">
-                <span class="track-name">heredero.mp3</span>
+                <span class="track-name">👑 El Heredero del Cosmos</span>
             </div>
             <div class="controls-row">
                 <button class="btn-play-pause" onclick="toggleTrack(3)" id="btn-3">▶</button>
@@ -423,7 +459,7 @@
         <!-- Track 5 -->
         <div class="audio-card" id="card-4">
             <div class="audio-info">
-                <span class="track-name">selva.mp3</span>
+                <span class="track-name">🌿 Ecos de la Selva Ancestral</span>
             </div>
             <div class="controls-row">
                 <button class="btn-play-pause" onclick="toggleTrack(4)" id="btn-4">▶</button>
