@@ -64,7 +64,7 @@
   <style>
     /* VARIABLES RGB NEÓN Y PALETA CIBER-LITERARIA */
     :root {
-      --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB */
+      --neon-pink: rgb(255, 0, 127);       /* Rosado Neón RGB Puro */
       --neon-violet: rgb(157, 0, 255);     /* Violeta Neón RGB */
       --neon-blue: rgb(0, 240, 255);       /* Azul Fluorescente RGB */
       --bg-space: rgb(11, 6, 24);          /* Fondo profundo */
@@ -235,29 +235,43 @@
       margin-top: 35px;
     }
 
-    /* BOTONES NEÓN ROSADO CON LETRAS ALTAMENTE VISIBLES (ENLACES INTERNOS HTML) */
+    /* BOTONES NEÓN ROSADO CON MÁXIMA VISIBILIDAD DE LETRAS */
     .btn-neon-pink {
       display: inline-block;
-      padding: 14px 32px;
+      padding: 15px 35px;
       border-radius: 50px;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 1.05em;
-      letter-spacing: 1px;
-      color: #ffffff; /* Letras blancas puras para máxima visibilidad */
-      background: rgba(255, 0, 127, 0.12);
-      border: 2px solid var(--neon-pink);
-      box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), inset 0 0 8px rgba(255, 0, 127, 0.2);
-      text-shadow: 0 0 6px #ffffff, 0 0 12px var(--neon-pink); /* Resplandor de texto para legibilidad perfecta */
+      font-weight: 800;                 /* Letras ultra-visibles y gruesas */
+      font-size: 1.1em;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;                   /* Blanco puro para un alto contraste */
+      background: rgba(255, 0, 127, 0.25); /* Fondo neón rosado semi-transparente */
+      border: 3px solid var(--neon-pink); /* Borde neón rosado de 3px */
+      
+      /* Resplandor externo e interno de alta potencia */
+      box-shadow: 
+        0 0 15px rgba(255, 0, 127, 0.6), 
+        0 0 30px rgba(255, 0, 127, 0.4), 
+        inset 0 0 12px rgba(255, 0, 127, 0.5);
+      
+      /* Sombra de texto dual para asegurar legibilidad */
+      text-shadow: 
+        0 0 4px #ffffff, 
+        0 0 10px var(--neon-pink), 
+        0 0 18px var(--neon-pink);
+        
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .btn-neon-pink:hover {
-      background: var(--neon-pink);
-      color: var(--bg-void);
-      box-shadow: 0 0 32px var(--neon-pink), 0 0 12px rgba(255, 0, 127, 0.6);
+      background: var(--neon-pink);     /* Fondo sólido al hacer hover */
+      color: var(--bg-void);            /* Letras oscuras para legibilidad inmediata */
+      box-shadow: 
+        0 0 25px var(--neon-pink), 
+        0 0 50px var(--neon-pink);
       text-shadow: none;
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
 
     .grid {
@@ -403,7 +417,7 @@
       margin: 25px 0 35px 0;
     }
 
-    /* ESTILO BASE PARA BOTONES SOCIALES INDIVIDUALES CON SUS COLORES RESPECTIVOS */
+    /* ESTILO ESTRUCTURAL PARA REDES SOCIALES */
     .btn-social {
       display: inline-block;
       padding: 11px 24px;
@@ -416,7 +430,7 @@
       transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    /* TikTok: Estilo oscuro con doble sombra cian y rosada */
+    /* TikTok */
     .btn-social-tiktok {
       background: #000000;
       border: 2px solid rgb(0, 240, 255);
@@ -428,7 +442,7 @@
       transform: translateY(-2px);
     }
 
-    /* Facebook: Azul corporativo puro con neón azul */
+    /* Facebook */
     .btn-social-facebook {
       background: #1877F2;
       border: 2px solid #1877F2;
@@ -440,7 +454,7 @@
       transform: translateY(-2px);
     }
 
-    /* X (Twitter): Negro minimalista con resplandor plata/blanco */
+    /* X (Twitter) - FORMATO REPARADO COHERENTE */
     .btn-social-x {
       background: #000000;
       border: 2px solid #ffffff;
@@ -452,7 +466,7 @@
       transform: translateY(-2px);
     }
 
-    /* Instagram: Degradado dinámico de Rojo, Rosado y Azul Neón */
+    /* Instagram */
     .btn-social-instagram {
       background: linear-gradient(45deg, rgb(230, 20, 60), rgb(255, 0, 127), rgb(0, 240, 255));
       border: 2px solid rgba(255, 255, 255, 0.2);
@@ -463,7 +477,7 @@
       transform: translateY(-2px);
     }
 
-    /* LinkedIn: Azul profesional con brillo azul neón */
+    /* LinkedIn */
     .btn-social-linkedin {
       background: #0A66C2;
       border: 2px solid #0A66C2;
@@ -557,7 +571,7 @@
       Tu navegador no soporta el formato de video.
     </video>
 
-    <!-- BOTONES EXCLUSIVOS PARA SECCIONES INTERNAS EN NEÓN ROSADO CON TEXTO ALTAMENTE VISIBLE -->
+    <!-- BOTONES INTERNOS HTML CONFIGURADOS CON NEÓN ROSADO INTENSO -->
     <div class="buttons-container">
       <a class="btn-neon-pink" href="libros.html">Explorar Libros</a>
       <a class="btn-neon-pink" href="gonom.html">Portal Sound Diana 🎵</a>
@@ -596,11 +610,11 @@
     Diana Helen Duque escritora todos los derechos reservados © 2026 <br>
     Plataforma integrada en el ecosistema digital Internacional <span>Arkanetx</span> <br>
     
-    <!-- REDES SOCIALES CON SUS RESPECTIVOS NOMBRES Y GAMAS CROMÁTICAS CORPORATIVAS INTERACTIVAS -->
+    <!-- REDES SOCIALES: BOTÓN DE X CORREGIDO UNIENDO LAS CLASES CORRECTAS -->
     <div class="footer-socials">
       <a href="https://www.tiktok.com/@dianahelenduque?_r=1&_t=ZN-97hKsmakGQw" class="btn-social btn-social-tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
       <a href="https://www.facebook.com/profile.php?id=61553584610408" class="btn-social btn-social-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="https://x.com/dianahelenduqu3?s=21" class="btn-social-x" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+      <a href="https://x.com/dianahelenduqu3?s=21" class="btn-social btn-social-x" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
       <a href="https://www.instagram.com/dianahelenduque?igsh=MWN0ZnlkaHprcWJzdQ==" class="btn-social btn-social-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="https://www.linkedin.com/in/diana-helen-duque-059572a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn-social btn-social-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
